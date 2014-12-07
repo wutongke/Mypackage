@@ -29,7 +29,15 @@ public class WelcomeActivity extends Activity {
 	}
 	public void ic_other(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "正在实现", Toast.LENGTH_SHORT).show();
+		Intent intent;
+		if(LoginConstant.isLogin){
+			intent = new Intent(WelcomeActivity.this,PersonActivity.class);
+			
+		}else{
+			intent = new Intent(WelcomeActivity.this,LoginActivity.class);
+			Toast.makeText(WelcomeActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
+		}
+		startActivity(intent);
 	}
 	
 	public void ic_system(View view) {
@@ -64,7 +72,8 @@ public class WelcomeActivity extends Activity {
 	}
 	public void ic_contact(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "正在实现", Toast.LENGTH_SHORT).show();
+		Intent joinIntent = new Intent(WelcomeActivity.this,ContactUsActivity.class);
+		startActivity(joinIntent);
 	}
 	public void ic_set(View view) {
 		// TODO Auto-generated method stub

@@ -30,6 +30,14 @@ public class PersonActivity extends Activity {
 		ActionBar mainBar = getActionBar();
         mainBar.setDisplayHomeAsUpEnabled(true);
         mainBar.setTitle("返回");
+		
+		
+		
+	}
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
 		TextView name = (TextView)findViewById(R.id.personname);
 		TextView phone = (TextView)findViewById(R.id.personphone);
 		DBHelper helper = new DBHelper(PersonActivity.this);
@@ -71,7 +79,6 @@ public class PersonActivity extends Activity {
 				startActivityForResult(intent, 1);
 			}
 		});
-		
 	}
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {

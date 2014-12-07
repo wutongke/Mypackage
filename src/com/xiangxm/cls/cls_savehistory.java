@@ -14,7 +14,6 @@ import com.xiangxm.utils.DatabaseHelper;
  * <p>
  * </p>
  * 
- * @author xiangxm 2013-12-3 t_savehistory
  * 
  */
 

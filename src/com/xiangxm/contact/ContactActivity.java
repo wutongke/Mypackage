@@ -95,8 +95,7 @@ public class ContactActivity extends Activity {
 								R.drawable.menu_new_user,
 								R.drawable.menu_search,
 								R.drawable.menu_delete, 
-								R.drawable.controlbar_showtype_list,
-								R.drawable.menu_exit };
+								};
 	
 	
     /**
@@ -111,7 +110,14 @@ public class ContactActivity extends Activity {
         mainBar.setDisplayHomeAsUpEnabled(true);
         mainBar.setTitle("返回");
         
-        mainLinearLayout = (LinearLayout)findViewById(R.id.list_ll);
+        
+        
+    }
+    @Override
+    protected void onResume() {
+    	// TODO Auto-generated method stub
+    	super.onResume();
+    	mainLinearLayout = (LinearLayout)findViewById(R.id.list_ll);
         DBHelper helper = new DBHelper(this);//获得所有用户的list
         helper.openDatabase(); //打开数据库，就打开这一次，因为Helper中的SQLiteDatabase是静态的。
         list = helper.getAllUser(privacy);//拿到所有保密状态为privacy的用户的list
@@ -197,12 +203,11 @@ public class ContactActivity extends Activity {
         //为list添加item选择器
         Drawable bgDrawable = getResources().getDrawable(R.drawable.list_bg);
         lv.setSelector(bgDrawable);
-        
     }
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
-    	menu.add(0, 0,0, "菜单");
+    	menu.add(0, 0,0, "增删联系人");
 		return super.onCreateOptionsMenu(menu);
 	}
 	@Override
@@ -272,7 +277,7 @@ public class ContactActivity extends Activity {
 		if(bottomMenuGrid == null) {
 			bottomMenuGrid = (GridView) findViewById(R.id.gv_buttom_menu);
 			bottomMenuGrid.setBackgroundResource(R.drawable.channelgallery_bg);// 设置背景
-			bottomMenuGrid.setNumColumns(5);// 设置每行列数
+			bottomMenuGrid.setNumColumns(3);// 设置每行列数
 			bottomMenuGrid.setGravity(Gravity.CENTER);// 位置居中
 			bottomMenuGrid.setVerticalSpacing(10);// 垂直间隔
 			bottomMenuGrid.setHorizontalSpacing(10);// 水平间隔

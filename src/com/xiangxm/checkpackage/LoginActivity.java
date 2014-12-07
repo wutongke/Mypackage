@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -24,6 +26,10 @@ public class LoginActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		ActionBar mainBar = getActionBar();
+        mainBar.setDisplayHomeAsUpEnabled(true);
+        mainBar.setTitle("返回");
+        
 		name = (EditText) findViewById(R.id.namelogin);
 		pwd = (EditText) findViewById(R.id.pwdlogin);
 		Button loginBtn = (Button) findViewById(R.id.loginbutton);
@@ -58,6 +64,7 @@ public class LoginActivity extends Activity {
 						if (pwd.getText().toString().equals(tempU.get("pwd"))) {
 							Intent intent = new Intent(LoginActivity.this,
 									WelcomeActivity.class);
+							intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 							startActivity(intent);
 							LoginConstant.isLogin = true;
 							LoginConstant.loginName = (String) tempU
@@ -74,6 +81,15 @@ public class LoginActivity extends Activity {
 				}
 			}
 		});
+	}
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		// TODO Auto-generated method stub
+		if(item.getItemId() == android.R.id.home){
+			this.finish();
+		}
+       
+     return true; 
 	}
 	@Override
 	protected void onDestroy() {

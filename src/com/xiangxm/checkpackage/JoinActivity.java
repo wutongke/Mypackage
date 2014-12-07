@@ -1,8 +1,10 @@
 package com.xiangxm.checkpackage;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -22,6 +24,11 @@ public class JoinActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_join);
+		
+		ActionBar mainBar = getActionBar();
+        mainBar.setDisplayHomeAsUpEnabled(true);
+        mainBar.setTitle("返回");
+        
 		name = (EditText) findViewById(R.id.name);
 		pwd = (EditText) findViewById(R.id.pwd);
 		pwdConfirm = (EditText) findViewById(R.id.pwdConfirm);
@@ -68,16 +75,26 @@ public class JoinActivity extends Activity {
 				
 				//通过结果来判断是否插入成功，若为1，则表示插入数据失败
 				if(result == -1 ) {
-					Toast.makeText(JoinActivity.this, "注册失败", Toast.LENGTH_LONG);
+					Toast.makeText(JoinActivity.this, "注册失败", Toast.LENGTH_LONG).show();
 				}else{
-					Toast.makeText(JoinActivity.this, "注册成功", Toast.LENGTH_LONG);
+					Toast.makeText(JoinActivity.this, "注册成功", Toast.LENGTH_LONG).show();
 					
 				}
 				Intent intent = new Intent(JoinActivity.this,WelcomeActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
 				JoinActivity.this.finish();
 			}
 		});
+	}
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		// TODO Auto-generated method stub
+		if(item.getItemId() == android.R.id.home){
+			this.finish();
+		}
+       
+     return true; 
 	}
 	@Override
 	protected void onDestroy() {

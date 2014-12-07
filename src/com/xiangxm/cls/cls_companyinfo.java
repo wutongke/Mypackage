@@ -13,7 +13,6 @@ import com.xiangxm.utils.DatabaseHelper;
  * 快递公司信息表 t_companyinfo
  * </p>
  * 
- * @author xiangxm 2013-12-3
  * 
  * 
  */

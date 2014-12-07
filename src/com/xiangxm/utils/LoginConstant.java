@@ -2,7 +2,7 @@ package com.xiangxm.utils;
 
 public class LoginConstant {
 
-	public static boolean isLogin = false;
-	public static String loginName = "";
+	public static volatile boolean isLogin = false;
+	public static volatile String loginName = "";
 
 }
