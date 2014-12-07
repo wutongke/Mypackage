@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.xiangxm.checkpackage.JoinActivity" >
+
+    <TextView 
+        android:id="@+id/nametitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户账号"
+        android:textSize="20sp"
+        android:layout_centerVertical="true"
+        />
+    <EditText 
+        android:id="@+id/name"
+        android:layout_width="@dimen/name_edit"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/nametitle"
+        android:layout_alignTop="@+id/nametitle"
+        />
+
+    <TextView 
+        android:id="@+id/pwdtitle"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/nametitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密       码"
+        android:textSize="20sp"
+        />
+    <EditText 
+        android:id="@+id/pwd"
+        android:layout_width="@dimen/name_edit"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/pwdtitle"
+        android:layout_alignTop="@+id/pwdtitle"
+        />
+    <TextView 
+        android:id="@+id/pwdConfirmtitle"
+        android:layout_below="@+id/pwdtitle"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确认密码"
+        android:textSize="20sp"
+        />
+    <EditText 
+        android:id="@+id/pwdConfirm"
+        android:layout_width="@dimen/name_edit"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/pwdConfirmtitle"
+        android:layout_alignTop="@+id/pwdConfirmtitle"
+        />
+    <Button 
+        android:id="@+id/joinbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:textSize="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        
+        />
+    
+</RelativeLayout>

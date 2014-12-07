@@ -3,7 +3,7 @@ package com.xiangxm.myapp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.xiangxm.checkpackage.MainActivity;
+import com.xiangxm.checkpackage.PackageQueryActivity;
 import com.xiangxm.cls.cls_companyinfo;
 import com.xiangxm.utils.Common;
 import com.xiangxm.utils.DatabaseHelper;

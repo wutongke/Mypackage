@@ -20,17 +20,12 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.xiangxm.checkpackage.MainActivity"
+            android:name=".PackageQueryActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name="com.xiangxm.checkpackage.SettingActivity"
+            android:name=".SettingActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
@@ -39,31 +34,55 @@
             android:name=".MainActivity"
             android:theme="@style/MY_MEIZU_UI"
             android:windowSoftInputMode="adjustPan" >
-        </activity>
+        </activity>
         -->
         <activity
-            android:name="com.xiangxm.checkpackage.SelectCompanyActivity"
+            android:name=".SelectCompanyActivity"
             android:screenOrientation="portrait"
-            
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name="com.xiangxm.checkpackage.PackageDetailInfoActivity"
+            android:name=".PackageDetailInfoActivity"
             android:screenOrientation="portrait"
-            
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name="com.xiangxm.checkpackage.HistoryActivity"
+            android:name=".HistoryActivity"
             android:screenOrientation="portrait"
-            
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name="com.xiangxm.checkpackage.CheckPackageHisActivity"
+            android:name=".CheckPackageHisActivity"
             android:screenOrientation="portrait"
-            
             android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".WelcomeActivity"
+            android:label="@string/title_activity_welcome" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.xiangxm.contact.ContactActivity"
+            android:label="Contact" >
+        </activity>
+        <activity android:name="com.xiangxm.contact.UserDetail" />
+        <activity android:name="com.xiangxm.contact.AddNew" />
+        <activity android:name="com.xiangxm.contact.MainPrivacy" />
+        <activity
+            android:name=".ContactActivity"
+            android:label="@string/title_activity_person" >
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name=".JoinActivity"
+            android:label="@string/title_activity_join" >
         </activity>
     </application>
 

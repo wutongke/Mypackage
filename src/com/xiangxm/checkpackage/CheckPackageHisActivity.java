@@ -81,7 +81,7 @@ public class CheckPackageHisActivity extends ListActivity implements
 
 				Intent intent = new Intent();
 				intent.setClass(CheckPackageHisActivity.this,
-						MainActivity.class);
+						PackageQueryActivity.class);
 				startActivity(intent);
 				overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
 				CheckPackageHisActivity.this.finish();
@@ -425,7 +425,7 @@ public class CheckPackageHisActivity extends ListActivity implements
 		case R.id.back_to_main:
 
 			Intent intent = new Intent();
-			intent.setClass(CheckPackageHisActivity.this, MainActivity.class);
+			intent.setClass(CheckPackageHisActivity.this, PackageQueryActivity.class);
 			startActivity(intent);
 			overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
 
