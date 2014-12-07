@@ -29,12 +29,12 @@ public class WelcomeActivity extends Activity {
 	}
 	public void ic_other(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "点击事件", Toast.LENGTH_SHORT).show();
+		Toast.makeText(WelcomeActivity.this, "正在实现", Toast.LENGTH_SHORT).show();
 	}
 	
 	public void ic_system(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "点击事件", Toast.LENGTH_SHORT).show();
+		Toast.makeText(WelcomeActivity.this, "正在实现", Toast.LENGTH_SHORT).show();
 	}
 	public void ic_query(View view) {
 		// TODO Auto-generated method stub
@@ -64,11 +64,11 @@ public class WelcomeActivity extends Activity {
 	}
 	public void ic_contact(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "点击事件", Toast.LENGTH_SHORT).show();
+		Toast.makeText(WelcomeActivity.this, "正在实现", Toast.LENGTH_SHORT).show();
 	}
 	public void ic_set(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "点击事件", Toast.LENGTH_SHORT).show();
+		Toast.makeText(WelcomeActivity.this, "正在实现", Toast.LENGTH_SHORT).show();
 	}
 	
 }
