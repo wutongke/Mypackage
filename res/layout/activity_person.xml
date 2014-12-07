@@ -43,6 +43,8 @@
         <TextView 
             android:id="@+id/personname"
             android:layout_toRightOf="@+id/personnametitle"
+            android:layout_alignTop="@+id/personnametitle"
+            android:layout_alignBottom="@+id/personnametitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
@@ -59,6 +61,8 @@
         <TextView 
             android:id="@+id/personphone"
             android:layout_toRightOf="@+id/personphonetitle"
+            android:layout_alignTop="@+id/personphonetitle"
+            android:layout_alignBottom="@+id/personphonetitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"

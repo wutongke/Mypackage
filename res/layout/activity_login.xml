@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#E3170D"
     tools:context="com.xiangxm.checkpackage.LoginActivity" >
 
     <TextView
@@ -18,10 +19,12 @@
 
     <EditText
         android:id="@+id/namelogin"
+        android:layout_marginLeft="20dp"
         android:layout_width="@dimen/name_edit"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/nametitlelogin"
-        android:layout_toRightOf="@+id/nametitlelogin" />
+        android:layout_toRightOf="@+id/nametitlelogin" 
+        android:singleLine="true"/>
 
     <TextView
         android:id="@+id/pwdtitlelogin"
@@ -34,13 +37,16 @@
 
     <EditText
         android:id="@+id/pwdlogin"
+        android:layout_marginLeft="20dp"
         android:layout_width="@dimen/name_edit"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/pwdtitlelogin"
-        android:layout_toRightOf="@+id/pwdtitlelogin" />
+        android:layout_toRightOf="@+id/pwdtitlelogin" 
+        android:singleLine="true"
+        />
 
     <Button
-        android:id="@+id/joinbutton"
+        android:id="@+id/loginbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

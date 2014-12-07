@@ -51,6 +51,7 @@ public class DBHelper {
 	public long insert(User user) {
 		ContentValues values = new ContentValues();
 		values.put("name", user.username);
+		values.put("pwd", user.userpwd);
 		values.put("mobilephone", user.mobilePhone);
 		values.put("officephone", user.officePhone);
 		values.put("familyphone", user.familyPhone);
@@ -77,7 +78,7 @@ public class DBHelper {
 		Cursor cursor = null;
 		if(privacy) {
 			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid"}, 
+					new String[]{"_id","name","pwd","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid"}, 
 					"privacy=1", 
 					null, 
 					null, 
@@ -85,7 +86,7 @@ public class DBHelper {
 					null);
 		} else {
 			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid"}, 
+					new String[]{"_id","name","pwd","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid"}, 
 					"privacy=0",
 					null, 
 					null, 
@@ -98,6 +99,7 @@ public class DBHelper {
 			HashMap item = new HashMap();
 			item.put("_id", cursor.getInt(cursor.getColumnIndex("_id")));
 			item.put("name", cursor.getString(cursor.getColumnIndex("name")));
+			item.put("pwd", cursor.getString(cursor.getColumnIndex("pwd")));
 			item.put("mobilephone", cursor.getString(cursor.getColumnIndex("mobilephone")));
 			item.put("officephone", cursor.getString(cursor.getColumnIndex("officephone")));
 			item.put("familyphone", cursor.getString(cursor.getColumnIndex("familyphone")));
@@ -119,6 +121,7 @@ public class DBHelper {
 	public void modify(User user) {
 		ContentValues values = new ContentValues();
 		values.put("name", user.username);
+		values.put("pwd", user.userpwd);
 		values.put("mobilephone", user.mobilePhone);
 		values.put("officephone", user.officePhone);
 		values.put("familyphone", user.familyPhone);
@@ -164,6 +167,7 @@ public class DBHelper {
 			HashMap item = new HashMap();
 			item.put("_id", cursor.getInt(cursor.getColumnIndex("_id")));
 			item.put("name", cursor.getString(cursor.getColumnIndex("name")));
+			item.put("pwd", cursor.getString(cursor.getColumnIndex("pwd")));
 			item.put("mobilephone", cursor.getString(cursor.getColumnIndex("mobilephone")));
 			item.put("officephone", cursor.getString(cursor.getColumnIndex("officephone")));
 			item.put("familyphone", cursor.getString(cursor.getColumnIndex("familyphone")));
@@ -202,7 +206,7 @@ public class DBHelper {
 		Cursor cursor = null;
 		if(privacy) {
 			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid,privacy"}, 
+					new String[]{"_id","name","pwd","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid,privacy"}, 
 					"privacy=1", 
 					null, 
 					null, 
@@ -210,7 +214,7 @@ public class DBHelper {
 					null);
 		} else {
 			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid,privacy"}, 
+					new String[]{"_id","name","pwd","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid,privacy"}, 
 					"privacy=0",
 					null, 
 					null, 
@@ -223,6 +227,7 @@ public class DBHelper {
 			sqlBackup.append("insert into " + DB_TABLENAME + "(name,mobilephone,officephone,familyphone,address,othercontact,email,position,company,zipcode,remark,imageid,privacy)")
 			.append(" values ('")
 			.append(cursor.getString(cursor.getColumnIndex("name"))).append("','")
+			.append(cursor.getString(cursor.getColumnIndex("pwd"))).append("','")
 			.append(cursor.getString(cursor.getColumnIndex("mobilephone"))).append("','")
 			.append(cursor.getString(cursor.getColumnIndex("officephone"))).append("','")
 			.append(cursor.getString(cursor.getColumnIndex("familyphone"))).append("','")
@@ -321,6 +326,7 @@ public class DBHelper {
 					   .append(" (")
 					   .append("_id integer primary key autoincrement,")
 					   .append("name text,")
+					   .append("pwd text,")
 					   .append("mobilephone text,")
 					   .append("officephone text,")
 					   .append("familyphone text,")

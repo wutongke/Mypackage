@@ -46,6 +46,7 @@ public class JoinActivity extends Activity {
 				//从表单上获取数据
 				User user = new User();
 				user.username = name.getText().toString();
+				user.userpwd = name.getText().toString();
 				user.address = "";
 				user.company = "";
 				user.email = "";
@@ -70,9 +71,11 @@ public class JoinActivity extends Activity {
 					Toast.makeText(JoinActivity.this, "注册失败", Toast.LENGTH_LONG);
 				}else{
 					Toast.makeText(JoinActivity.this, "注册成功", Toast.LENGTH_LONG);
+					
 				}
 				Intent intent = new Intent(JoinActivity.this,WelcomeActivity.class);
 				startActivity(intent);
+				JoinActivity.this.finish();
 			}
 		});
 	}

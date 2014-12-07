@@ -1,6 +1,7 @@
 package com.xiangxm.checkpackage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import android.app.Activity;
@@ -25,7 +26,7 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 		name = (EditText) findViewById(R.id.namelogin);
 		pwd = (EditText) findViewById(R.id.pwdlogin);
-		Button loginBtn = (Button) findViewById(R.id.joinbutton);
+		Button loginBtn = (Button) findViewById(R.id.loginbutton);
 		loginBtn.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -41,16 +42,35 @@ public class LoginActivity extends Activity {
 				helper.openDatabase();
 				//把user存储到数据库里
 				ArrayList<User> result = helper.getAllUser(true);
+				int count = 0;
 				Iterator temp = result.iterator();
 				while(temp.hasNext()){
-					User tempU = (User) temp.next();
-					if(name.getText().toString().equals(tempU.username)){
-						Intent intent = new Intent(LoginActivity.this,WelcomeActivity.class);
-						startActivity(intent);
-						LoginConstant.isLogin = true;
-						LoginConstant.loginName = tempU.username;
-						break;
+					HashMap tempU = (HashMap) temp.next();
+					if(name.getText().toString().equals(tempU.get("name"))){
+//						Intent intent = new Intent(LoginActivity.this,
+//								WelcomeActivity.class);
+//						startActivity(intent);
+//						LoginConstant.isLogin = true;
+//						LoginConstant.loginName = (String) tempU
+//								.get("name");
+//						LoginActivity.this.finish();
+//						break;
+						if (pwd.getText().toString().equals(tempU.get("pwd"))) {
+							Intent intent = new Intent(LoginActivity.this,
+									WelcomeActivity.class);
+							startActivity(intent);
+							LoginConstant.isLogin = true;
+							LoginConstant.loginName = (String) tempU
+									.get("name");
+							LoginActivity.this.finish();
+							break;
+						}
 					}
+					count++;
+				}
+				if (count==result.size()) {
+					Toast.makeText(LoginActivity.this, "账号或密码错误",
+							Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

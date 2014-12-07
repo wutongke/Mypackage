@@ -43,11 +43,13 @@ public class WelcomeActivity extends Activity {
 	}
 	public void ic_send(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "点击事件", Toast.LENGTH_SHORT).show();
+		Intent query = new Intent(WelcomeActivity.this,SendActivity.class);
+		startActivity(query);
 	}
 	public void ic_receive(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "点击事件", Toast.LENGTH_SHORT).show();
+		Intent query = new Intent(WelcomeActivity.this,ReceiveActivity.class);
+		startActivity(query);
 	}
 	public void ic_join(View view) {
 		// TODO Auto-generated method stub

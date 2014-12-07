@@ -34,7 +34,7 @@
             android:name=".MainActivity"
             android:theme="@style/MY_MEIZU_UI"
             android:windowSoftInputMode="adjustPan" >
-        </activity>
+        </activity>
         -->
         <activity
             android:name=".SelectCompanyActivity"
@@ -58,12 +58,14 @@
         </activity>
         <activity
             android:name=".WelcomeActivity"
-            android:label="@string/title_activity_welcome" >
+             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".PersonActivity" >
         </activity>
         <activity
             android:name="com.xiangxm.contact.ContactActivity"
@@ -83,6 +85,14 @@
         <activity
             android:name=".JoinActivity"
             android:label="@string/title_activity_join" >
+        </activity>
+        <activity
+            android:name=".SendActivity"
+            android:label="@string/title_activity_send" >
+        </activity>
+        <activity
+            android:name=".ReceiveActivity"
+            android:label="@string/title_activity_receive" >
         </activity>
     </application>
 

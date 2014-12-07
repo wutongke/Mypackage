@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">掌上快递</string>
-    <string name="version_code">掌上快递1.1</string>
+    <string name="app_name">快递服务系统</string>
+    <string name="version_code">快递查询</string>
     <string name="menu_settings">设置</string>
     <string name="hello_world">Hello world!</string>
     <string name="databasename">mypackage</string>
@@ -14,5 +14,7 @@
     <string name="title_activity_person">PersonActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_join">JoinActivity</string>
+    <string name="title_activity_send">SendActivity</string>
+    <string name="title_activity_receive">ReceiveActivity</string>
 
 </resources>

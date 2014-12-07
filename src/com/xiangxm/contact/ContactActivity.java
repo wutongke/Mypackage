@@ -3,6 +3,7 @@ package com.xiangxm.contact;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,6 +14,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
@@ -36,8 +39,6 @@ import com.xiangxm.cls.User;
 
 public class ContactActivity extends Activity {
 	
-	
-
 	//显示所有数据的ListView
 	ListView lv;
 	
@@ -88,7 +89,7 @@ public class ContactActivity extends Activity {
 							   R.drawable.menu_fresh,
 							   R.drawable.menu_return};
 	
-	String[] bottom_menu_itemName = { "增加", "查找", "删除", "菜单","退出" };
+	String[] bottom_menu_itemName = { "增加", "查找", "删除" };
 	String fileName;
 	int[] bottom_menu_itemSource = {
 								R.drawable.menu_new_user,
@@ -106,6 +107,9 @@ public class ContactActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        ActionBar mainBar = getActionBar();
+        mainBar.setDisplayHomeAsUpEnabled(true);
+        mainBar.setTitle("返回");
         
         mainLinearLayout = (LinearLayout)findViewById(R.id.list_ll);
         DBHelper helper = new DBHelper(this);//获得所有用户的list
@@ -195,6 +199,36 @@ public class ContactActivity extends Activity {
         lv.setSelector(bgDrawable);
         
     }
+    @Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// TODO Auto-generated method stub
+    	menu.add(0, 0,0, "菜单");
+		return super.onCreateOptionsMenu(menu);
+	}
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		// TODO Auto-generated method stub
+		if(item.getItemId() == android.R.id.home){
+			this.finish();
+		}
+		 switch(item.getItemId()){  
+         case 0:  
+        	 loadBottomMenu();
+ 			if(bottomMenuGrid.getVisibility() == View.VISIBLE) {
+ 				if(searchLinearout != null && searchLinearout.getVisibility() == View.VISIBLE) {
+ 					searchLinearout.setVisibility(View.GONE);
+ 				}
+ 				bottomMenuGrid.setVisibility(View.GONE);
+ 			} else {
+ 				bottomMenuGrid.setVisibility(View.VISIBLE);
+ 			}  
+             break;  
+         default :break; 
+       
+     }  
+       
+     return true; 
+	}
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -323,17 +357,17 @@ public class ContactActivity extends Activity {
 							}
 							
 							break;
-						case 3:
-							if(searchLinearout != null && searchLinearout.getVisibility()==View.VISIBLE) {
-								searchLinearout.setVisibility(View.GONE);
-							}
-							loadMainMenuDialog();
-							mainMenuDialog.show();
-							
-							break;
-						case 4:
-							finish();
-							break;
+//						case 3:
+//							if(searchLinearout != null && searchLinearout.getVisibility()==View.VISIBLE) {
+//								searchLinearout.setVisibility(View.GONE);
+//							}
+//							loadMainMenuDialog();
+//							mainMenuDialog.show();
+//							
+//							break;
+//						case 4:
+//							finish();
+//							break;
 					}
 				}
 			});
