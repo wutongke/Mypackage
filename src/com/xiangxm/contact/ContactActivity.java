@@ -266,24 +266,6 @@ public class ContactActivity extends Activity {
 		
 	}
 
-	/**
-	 * 响应点击Menu按钮时的事件，用于设置底部菜单是否可见
-	 */
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if(keyCode == KeyEvent.KEYCODE_MENU) {
-			loadBottomMenu();
-			if(bottomMenuGrid.getVisibility() == View.VISIBLE) {
-				if(searchLinearout != null && searchLinearout.getVisibility() == View.VISIBLE) {
-					searchLinearout.setVisibility(View.GONE);
-				}
-				bottomMenuGrid.setVisibility(View.GONE);
-			} else {
-				bottomMenuGrid.setVisibility(View.VISIBLE);
-			}
-		}
-		return super.onKeyDown(keyCode, event);
-	}
-	
 	
 	private void loadBottomMenu() {
 		
