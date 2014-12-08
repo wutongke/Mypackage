@@ -77,7 +77,8 @@ public class WelcomeActivity extends Activity {
 	}
 	public void ic_set(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "正在实现", Toast.LENGTH_SHORT).show();
+		Intent joinIntent = new Intent(WelcomeActivity.this,MySetActivity.class);
+		startActivity(joinIntent);
 	}
 	
 }

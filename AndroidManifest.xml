@@ -29,7 +29,7 @@
             android:name=".MainActivity"
             android:theme="@style/MY_MEIZU_UI"
             android:windowSoftInputMode="adjustPan" >
-        </activity>
+        </activity>
         -->
         <activity
             android:name=".SelectCompanyActivity"
@@ -90,6 +90,14 @@
         <activity
             android:name=".ContactUsActivity"
             android:label="@string/title_activity_contact_us" >
+        </activity>
+        <activity
+            android:name=".MySetActivity"
+            android:label="@string/title_activity_my_set" >
+        </activity>
+        <activity
+            android:name=".NewDingActivity"
+            android:label="@string/title_activity_new_ding" >
         </activity>
     </application>
 

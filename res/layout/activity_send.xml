@@ -13,10 +13,11 @@
    
 
         <TextView
+            android:id="@+id/newDing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="评价反馈"
+            android:text="新建快递信息"
             android:textSize="20sp" 
             android:layout_gravity="center_horizontal"
             />
@@ -82,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_margin"
             android:layout_gravity="center_horizontal"
-            android:text="新建快递信息"
+            android:text="评价反馈"
             android:textSize="20sp" />
     
 

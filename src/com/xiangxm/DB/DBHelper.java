@@ -352,11 +352,4 @@ public class DBHelper {
 		}
 		
 	}
-
-
-	
-
-
-	
-	
 }
