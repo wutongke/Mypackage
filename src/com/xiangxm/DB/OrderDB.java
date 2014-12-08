@@ -20,7 +20,7 @@ public class OrderDB {
 
 public static final String DB_DBNAME="order";
 	
-	public static final String DB_TABLENAME="my_order";
+	public static final String DB_TABLENAME="myorder";
 	
 	public static final int VERSION = 1;
 	
@@ -63,13 +63,13 @@ public static final String DB_DBNAME="order";
 	}
 	
 	/**
-	 * 获得数据库中所有的用户，将每一个用户放到一个map中去，然后再将map放到list里面去返回
+	 * 获得数据库中所有的数据
 	 * @param privacy 
 	 * @return list
 	 */
 	
 	@SuppressWarnings("unchecked")
-	public ArrayList getAllUser(boolean privacy) {
+	public ArrayList getAllOrder() {
 		ArrayList list = new ArrayList();
 		Cursor cursor = null;
 			cursor = dbInstance.query(DB_TABLENAME, 
@@ -203,7 +203,7 @@ public static final String DB_DBNAME="order";
 					   .append("company text,")
 					   .append("number text,")
 					   .append("time text,")
-					   .append("content text,")
+					   .append("content text")
 					   .append(")");
 			System.out.println(tableCreate.toString());
 			db.execSQL(tableCreate.toString());
