@@ -34,7 +34,7 @@
         android:layout_below="@+id/nametitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="订单公司"
+        android:text="快递公司"
         android:textSize="20sp"
         />
     <EditText 
@@ -51,7 +51,7 @@
         android:layout_below="@+id/pwdtitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="订单号"
+        android:text="快递号"
         android:textSize="20sp"
         />
     <EditText 
@@ -62,6 +62,91 @@
         android:layout_alignLeft="@+id/ordername"
         android:singleLine="true"
         />
+     <TextView 
+        android:id="@+id/orderreveivetitle"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/pwdtitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="接收方"
+        android:textSize="20sp"
+        />
+    <EditText 
+        android:id="@+id/orderreveive"
+        android:layout_width="@dimen/name_edit"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/orderreveivetitle"
+        android:layout_alignLeft="@+id/ordername"
+        android:singleLine="true"
+        />
+     <TextView 
+        android:id="@+id/ordersendertitle"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/orderreveivetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送方"
+        android:textSize="20sp"
+        />
+    <EditText 
+        android:id="@+id/ordersender"
+        android:layout_width="@dimen/name_edit"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ordersendertitle"
+        android:layout_alignLeft="@+id/ordername"
+        android:singleLine="true"
+        />
+    <TextView 
+        android:id="@+id/ordercontenttitle"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ordersendertitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送货物"
+        android:textSize="20sp"
+        />
+    <EditText 
+        android:id="@+id/ordercontent"
+        android:layout_width="@dimen/name_edit"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ordercontenttitle"
+        android:layout_alignLeft="@+id/ordername"
+        android:singleLine="true"
+        />
+    <TextView 
+        android:id="@+id/orderothertitle"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ordercontenttitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="备注信息"
+        android:textSize="20sp"
+        />
+    <EditText 
+        android:id="@+id/orderother"
+        android:layout_width="@dimen/name_edit"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/orderothertitle"
+        android:layout_alignLeft="@+id/ordername"
+        android:singleLine="true"
+        />
+    <TextView 
+        android:id="@+id/ordercosttitle"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/orderothertitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="快递费用"
+        android:textSize="20sp"
+        />
+    <EditText 
+        android:id="@+id/ordercost"
+        android:layout_width="@dimen/name_edit"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ordercosttitle"
+        android:layout_alignLeft="@+id/ordername"
+        android:singleLine="true"
+        />
     <Button 
         android:id="@+id/dingbutton"
         android:layout_width="wrap_content"
@@ -69,7 +154,7 @@
         android:text="确定"
         android:textSize="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
         />
     

@@ -31,6 +31,32 @@ public class ReceiveActivity extends Activity {
 				startActivity(orderIntent);
 			}
 		});
+        findViewById(R.id.getgoods).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Toast.makeText(ReceiveActivity.this, "请到指定地点提取快递", Toast.LENGTH_SHORT).show();
+				
+			}
+		});
+        findViewById(R.id.orderfinish).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Toast.makeText(ReceiveActivity.this, "完成订单", Toast.LENGTH_SHORT).show();
+				
+			}
+		});
+        findViewById(R.id.orderforother).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Toast.makeText(ReceiveActivity.this, "请自行联系快递公司", Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 	@Override

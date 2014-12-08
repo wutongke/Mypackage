@@ -42,7 +42,7 @@ public class WelcomeActivity extends Activity {
 	
 	public void ic_system(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "正在实现", Toast.LENGTH_SHORT).show();
+		Toast.makeText(WelcomeActivity.this, "请选择其他按钮", Toast.LENGTH_SHORT).show();
 	}
 	public void ic_query(View view) {
 		// TODO Auto-generated method stub

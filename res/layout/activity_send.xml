@@ -23,6 +23,7 @@
             />
 
         <TextView
+            android:id="@+id/ordermore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_margin"
@@ -31,6 +32,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/ordertrack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_margin"
@@ -39,6 +41,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/ordersendconfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_margin"
@@ -47,44 +50,31 @@
             android:textSize="20sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/ordercommenttitle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_margin"
-            android:layout_gravity="center_horizontal"
-            android:text="网络支付"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_margin"
-            android:layout_gravity="center_horizontal"
-            android:text="信息修改"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_margin"
-            android:layout_gravity="center_horizontal"
-            android:text="快递公司选择"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_margin"
-            android:layout_gravity="center_horizontal"
-            android:text="自助快递柜选择"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_margin"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:textColor="#00EE00"
             android:text="评价反馈"
             android:textSize="20sp" />
-    
+        <EditText 
+            android:id="@+id/ordercomment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="@dimen/item_margin"
+            android:singleLine="false"
+            />
+    	<Button 
+    	    android:id="@+id/commentsubmit"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="提交评论"
+    	    android:textSize="20sp"
+    	    android:textColor="#00EE00"
+    	    android:layout_marginLeft="30dp"
+    	    />
 
 </LinearLayout>

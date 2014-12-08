@@ -74,11 +74,10 @@ public class PersonActivity extends Activity {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(PersonActivity.this,UserDetail.class);
 				intent.putExtra("user", user);
-				
-				
 				startActivityForResult(intent, 1);
 			}
 		});
+		
 	}
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {

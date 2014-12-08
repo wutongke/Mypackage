@@ -23,14 +23,13 @@
             />
 
         <TextView
+            android:id="@+id/getgoods"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_margin"
             android:layout_gravity="center_horizontal"
             android:text="取快递"
             android:textSize="20sp" />
-
-       
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,8 +38,8 @@
             android:layout_gravity="center_horizontal"
             android:text="自助快递验证"
             android:textSize="20sp" />
-
         <TextView
+            android:id="@+id/orderfinish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_margin"
@@ -49,6 +48,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/orderforother"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_margin"

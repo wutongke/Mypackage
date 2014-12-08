@@ -15,6 +15,11 @@ public class NewDingActivity extends Activity {
 	TextView orderName;
 	TextView orderCompany;
 	TextView orderNumber;
+	TextView orderSender;
+	TextView orderReceive;
+	TextView orderContent;
+	TextView orderOther;
+	TextView orderCost;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,11 @@ public class NewDingActivity extends Activity {
 		orderName = (TextView) findViewById(R.id.ordername);
 		orderCompany = (TextView) findViewById(R.id.ordercompany);
 		orderNumber = (TextView) findViewById(R.id.ordernumber);
+		orderSender = (TextView)findViewById(R.id.ordersender);
+		orderReceive = (TextView)findViewById(R.id.orderreveive);
+		orderContent = (TextView)findViewById(R.id.ordercontent);
+		orderOther = (TextView)findViewById(R.id.orderother);
+		orderCost = (TextView)findViewById(R.id.ordercost);
 		ding.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -40,6 +50,14 @@ public class NewDingActivity extends Activity {
 					temp.name = orderName.getText().toString();
 					temp.company = orderCompany.getText().toString();
 					temp.number = orderNumber.getText().toString();
+					temp.sender = orderSender.getText().toString();
+					temp.receiver = orderReceive.getText().toString();
+					temp.content = orderContent.getText().toString();
+					temp.otherinfo = orderOther.getText().toString();
+					temp.cost = orderCost.getText().toString();
+					temp.isover = 0;
+					temp.sendorreceive = 1;
+					
 					if(myOrder.insert(temp)){
 						Toast.makeText(NewDingActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
 						NewDingActivity.this.finish();
