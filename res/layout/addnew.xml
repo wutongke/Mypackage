@@ -10,7 +10,6 @@
 				android:layout_height="wrap_content"
 				android:scrollbars="vertical">
 		<LinearLayout 
-			xmlns:android="http://schemas.android.com/apk/res/android"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical">
@@ -62,87 +61,6 @@
 					android:phoneNumber="true" />
 			</LinearLayout>
 			<LinearLayout 
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content" 
-					android:orientation="vertical"
-					android:layout_marginLeft="10dp" 
-					android:layout_marginRight="10dp">
-				<TextView 
-					android:layout_height="wrap_content"
-					android:layout_width="wrap_content" 
-					android:text="办公室电话："
-					android:textSize="20dp" />
-				<EditText 
-					android:id="@+id/officephone"
-					android:layout_width="fill_parent" 
-					android:layout_height="wrap_content"
-					android:scrollbars="vertical" 
-					android:phoneNumber="true"
-					android:hint="办公室电话" 
-					android:gravity="top" />
-			</LinearLayout>
-			<LinearLayout 
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content" 
-					android:orientation="vertical"
-					android:layout_marginLeft="10dp" 
-					android:layout_marginRight="10dp">
-				<TextView 
-					android:layout_height="wrap_content"
-					android:layout_width="wrap_content" 
-					android:text="家庭电话："
-					android:textSize="20dp" />
-				<EditText 
-					android:id="@+id/familyphone"
-					android:layout_width="fill_parent" 
-					android:layout_height="wrap_content"
-					android:scrollbars="vertical" 
-					android:phoneNumber="true"
-					android:hint="家庭电话" 
-					android:gravity="top" />
-			</LinearLayout>
-			<LinearLayout 
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content" 
-					android:orientation="vertical"
-					android:layout_marginLeft="10dp" 
-					android:layout_marginRight="10dp">
-				<TextView 
-					android:layout_height="wrap_content"
-					android:layout_width="wrap_content" 
-					android:text="职务职称："
-					android:textSize="20dp" />
-				<EditText 
-					android:id="@+id/position" 
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content" 
-					android:scrollbars="vertical"
-					android:hint="职务职称" 
-					android:gravity="top" />
-			</LinearLayout>
-			
-			
-		
-			<LinearLayout 
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content" 
-				android:orientation="vertical"
-				android:layout_marginLeft="10dp" 
-				android:layout_marginRight="10dp">
-				<TextView 
-					android:layout_height="wrap_content"
-					android:layout_width="wrap_content" 
-					android:text="单位名称："
-					android:textSize="20dp" />
-				<EditText 
-					android:id="@+id/company" 
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content" 
-					android:scrollbars="vertical"
-					android:hint="单位名称" 
-					android:gravity="top" />
-			</LinearLayout>
-			<LinearLayout 
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content" 
 				android:orientation="vertical"
@@ -161,25 +79,7 @@
 					android:hint="地址" 
 					android:gravity="top" />
 			</LinearLayout>
-			<LinearLayout 
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content" 
-				android:orientation="vertical"
-				android:layout_marginLeft="10dp" 
-				android:layout_marginRight="10dp">
-				<TextView 
-					android:layout_height="wrap_content"
-					android:layout_width="wrap_content" 
-					android:text="邮政编码："
-					android:textSize="20dp" />
-				<EditText 
-					android:id="@+id/zipcode"
-					android:layout_width="fill_parent" 
-					android:layout_height="wrap_content"
-					android:scrollbars="vertical" 
-					android:hint="邮政编码" 
-					android:gravity="top" />
-			</LinearLayout>
+			
 			<LinearLayout 
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content" 

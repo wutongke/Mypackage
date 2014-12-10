@@ -25,7 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/nametitlelogin"
         android:layout_toRightOf="@+id/nametitlelogin" 
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:hint="手机号或者邮箱"
+        />
 
     <TextView
         android:id="@+id/pwdtitlelogin"
@@ -40,6 +42,7 @@
         android:id="@+id/pwdlogin"
         android:layout_width="@dimen/name_edit"
         android:layout_height="wrap_content"
+        android:password="true"
         android:layout_alignTop="@+id/pwdtitlelogin"
         android:layout_alignLeft="@+id/namelogin"
         android:singleLine="true"

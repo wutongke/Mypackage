@@ -40,12 +40,7 @@ public class UserDetail extends Activity implements ViewFactory {
 
 	EditText et_name;
 	EditText et_mobilePhone;
-	EditText et_officePhone;
-	EditText et_familyPhone;
-	EditText et_position;
-	EditText et_company;
 	EditText et_address;
-	EditText et_zipCode;
 	EditText et_otherContact;
 	EditText et_email;
 	EditText et_remark;
@@ -188,12 +183,7 @@ public class UserDetail extends Activity implements ViewFactory {
 		// 获得EditText控件
 		et_name = (EditText) findViewById(R.id.username);
 		et_mobilePhone = (EditText) findViewById(R.id.mobilephone);
-		et_officePhone = (EditText) findViewById(R.id.officephone);
-		et_familyPhone = (EditText) findViewById(R.id.familyphone);
-		et_position = (EditText) findViewById(R.id.position);
-		et_company = (EditText) findViewById(R.id.company);
 		et_address = (EditText) findViewById(R.id.address);
-		et_zipCode = (EditText) findViewById(R.id.zipcode);
 		et_otherContact = (EditText) findViewById(R.id.othercontact);
 		et_email = (EditText) findViewById(R.id.email);
 		et_remark = (EditText) findViewById(R.id.remark);
@@ -207,15 +197,10 @@ public class UserDetail extends Activity implements ViewFactory {
 		// 为控件赋值
 		et_name.setText(user.username);
 		et_mobilePhone.setText(user.mobilePhone);
-		et_familyPhone.setText(user.familyPhone);
-		et_officePhone.setText(user.officePhone);
-		et_company.setText(user.company);
 		et_address.setText(user.address);
-		et_zipCode.setText(user.zipCode);
 		et_otherContact.setText(user.otherContact);
 		et_email.setText(user.email);
 		et_remark.setText(user.remark);
-		et_position.setText(user.position);
 		imageButton.setImageResource(user.imageId);
 	}
 
@@ -225,12 +210,7 @@ public class UserDetail extends Activity implements ViewFactory {
 	private void setEditTextDisable() {
 		et_name.setEnabled(false);
 		et_mobilePhone.setEnabled(false);
-		et_officePhone.setEnabled(false);
-		et_familyPhone.setEnabled(false);
-		et_position.setEnabled(false);
-		et_company.setEnabled(false);
 		et_address.setEnabled(false);
-		et_zipCode.setEnabled(false);
 		et_otherContact.setEnabled(false);
 		et_email.setEnabled(false);
 		et_remark.setEnabled(false);
@@ -245,12 +225,7 @@ public class UserDetail extends Activity implements ViewFactory {
 	private void setEditTextAble() {
 		et_name.setEnabled(true);
 		et_mobilePhone.setEnabled(true);
-		et_officePhone.setEnabled(true);
-		et_familyPhone.setEnabled(true);
-		et_position.setEnabled(true);
-		et_company.setEnabled(true);
 		et_address.setEnabled(true);
-		et_zipCode.setEnabled(true);
 		et_otherContact.setEnabled(true);
 		et_email.setEnabled(true);
 		et_remark.setEnabled(true);
@@ -265,12 +240,7 @@ public class UserDetail extends Activity implements ViewFactory {
 		
 		et_name.setTextColor(Color.BLACK);
 		et_mobilePhone.setTextColor(Color.BLACK);
-		et_officePhone.setTextColor(Color.BLACK);
-		et_familyPhone.setTextColor(Color.BLACK);
-		et_position.setTextColor(Color.BLACK);
-		et_company.setTextColor(Color.BLACK);
 		et_address.setTextColor(Color.BLACK);
-		et_zipCode.setTextColor(Color.BLACK);
 		et_otherContact.setTextColor(Color.BLACK);
 		et_email.setTextColor(Color.BLACK);
 		et_remark.setTextColor(Color.BLACK);
@@ -282,12 +252,7 @@ public class UserDetail extends Activity implements ViewFactory {
 	private void setColorToWhite() {
 		et_name.setTextColor(Color.WHITE);
 		et_mobilePhone.setTextColor(Color.WHITE);
-		et_officePhone.setTextColor(Color.WHITE);
-		et_familyPhone.setTextColor(Color.WHITE);
-		et_position.setTextColor(Color.WHITE);
-		et_company.setTextColor(Color.WHITE);
 		et_address.setTextColor(Color.WHITE);
-		et_zipCode.setTextColor(Color.WHITE);
 		et_otherContact.setTextColor(Color.WHITE);
 		et_email.setTextColor(Color.WHITE);
 		et_remark.setTextColor(Color.WHITE);
@@ -299,15 +264,10 @@ public class UserDetail extends Activity implements ViewFactory {
 	private void modify() {
 		user.username = et_name.getText().toString();
 		user.address = et_address.getText().toString();
-		user.company = et_company.getText().toString();
 		user.email = et_email.getText().toString();
-		user.familyPhone = et_familyPhone.getText().toString();
 		user.mobilePhone = et_mobilePhone.getText().toString();
-		user.officePhone = et_officePhone.getText().toString();
 		user.otherContact = et_otherContact.getText().toString();
-		user.position = et_position.getText().toString();
 		user.remark = et_remark.getText().toString();
-		user.zipCode = et_zipCode.getText().toString();
 		if(imageChanged) {
 			user.imageId = images[currentImagePosition%images.length];
 		}

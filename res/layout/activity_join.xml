@@ -26,6 +26,7 @@
         android:layout_alignTop="@+id/nametitle"
         android:layout_marginLeft="20dp"
         android:singleLine="true"
+        android:hint="手机号或者邮箱"
         />
 
     <TextView 

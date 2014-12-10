@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="姓名: " 
-            android:textSize="15sp"
+            android:textSize="20sp"
             />
         <TextView 
             android:id="@+id/personname"
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="电话: " 
-            android:textSize="15sp"
+            android:textSize="20sp"
             />
         <TextView 
             android:id="@+id/personphone"
@@ -69,24 +69,23 @@
             android:textSize="15sp"
             />
     </RelativeLayout>
+    
+    <TextView
+            android:id="@+id/contacttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="联系人信息" 
+            android:textSize="30sp"
+            />
     <Button 
         android:id="@+id/contactinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="联系人信息"
+        android:text="地址簿"
         android:gravity="center"
         android:textSize="20sp"
         android:onClick="contactInfo"
         />
-	<Button 
-        android:id="@+id/waybillinfo"
-        android:layout_marginTop="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="历史运单"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:onClick="wayBillInfo"
-        />
+	
 </LinearLayout>

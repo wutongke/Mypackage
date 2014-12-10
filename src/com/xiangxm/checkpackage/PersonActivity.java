@@ -31,8 +31,6 @@ public class PersonActivity extends Activity {
         mainBar.setDisplayHomeAsUpEnabled(true);
         mainBar.setTitle("返回");
 		
-		
-		
 	}
 	@Override
 	protected void onResume() {

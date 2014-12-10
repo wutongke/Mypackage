@@ -86,12 +86,7 @@ public class AddNew extends Activity implements ViewFactory {
 		
 		et_name = (EditText)findViewById(R.id.username);
 		et_mobilePhone = (EditText)findViewById(R.id.mobilephone);
-		et_officePhone = (EditText)findViewById(R.id.officephone);
-		et_familyPhone = (EditText)findViewById(R.id.familyphone);
-		et_position = (EditText)findViewById(R.id.position);
-		et_company = (EditText)findViewById(R.id.company);
 		et_address = (EditText)findViewById(R.id.address);
-		et_zipCode = (EditText)findViewById(R.id.zipcode);
 		et_otherContact = (EditText)findViewById(R.id.othercontact);
 		et_email = (EditText)findViewById(R.id.email);
 		et_remark = (EditText)findViewById(R.id.remark);

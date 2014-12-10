@@ -14,39 +14,47 @@
 
         <TextView
             android:id="@+id/newDing"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="新建快递信息"
+            android:padding="10dp"
+            android:background="#CD8500"
             android:textSize="20sp" 
             android:layout_gravity="center_horizontal"
             />
 
         <TextView
             android:id="@+id/ordermore"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_margin"
             android:layout_gravity="center_horizontal"
             android:text="运单详情"
+            android:padding="10dp"
+            android:background="#CD8500"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/ordertrack"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_margin"
             android:layout_gravity="center_horizontal"
             android:text="订单跟踪"
+            android:padding="10dp"
+            android:background="#CD8500"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/ordersendconfirm"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_margin"
             android:layout_gravity="center_horizontal"
             android:text="发货确认"
+            android:padding="10dp"
+            android:background="#CD8500"
             android:textSize="20sp" />
 
         <TextView
