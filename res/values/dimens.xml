@@ -5,6 +5,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="name_edit">150dp</dimen>
     <dimen name="item_margin">8dp</dimen>
-    
-
+    <!--send -->
+	<dimen name="companytextsize">10sp</dimen>
 </resources>

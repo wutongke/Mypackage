@@ -60,8 +60,6 @@ public static final String DB_DBNAME="order";
 		values.put("otherinfo", order.otherinfo);
 		values.put("isover", order.isover);
 		values.put("sendorreceive", order.sendorreceive);
-		
-		
 		if( dbInstance.insert(DB_TABLENAME, null, values)>0){
 			return true;
 		}else{
@@ -159,7 +157,23 @@ public static final String DB_DBNAME="order";
 		
 		dbInstance.update(DB_TABLENAME, values, "_id=?", new String[]{String.valueOf(order._id)});
 	}
-	
+	/**
+	 * 未完成
+	 * @param _id
+	 */
+	public void getUser(int _id){
+		Cursor cursor = null;
+		cursor = dbInstance.query(DB_TABLENAME, 
+				new String[]{"_id","name","company","number","time","content","cost","sender","receiver","otherinfo",
+				"isover","sendorreceive"}, 
+				"_id="+_id, 
+				null, 
+				null, 
+				null, 
+				null);
+		if(cursor.moveToFirst()){
+		}
+	}
 	public void delete(int _id) {
 		dbInstance.delete(DB_TABLENAME, "_id=?", new String[]{String.valueOf(_id)});
 	}

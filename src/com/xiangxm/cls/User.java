@@ -11,27 +11,11 @@ public class User implements Serializable {
 	public String userpwd;
 	
 	public String mobilePhone;
-	
-	public String officePhone;
-	
-	public String familyPhone;
-	
-	public String position;
-	
-	public String company;
-	
+
 	public String address;
-	
-	public String zipCode;
-	
-	public String email;
-	
-	public String otherContact;
-	
-	public String remark;
-	
-	public int imageId;
-	
+	//1注册用户0其他用户
 	public int privacy;
+	//1fasong2jieshou
+	public int senderorreceive;
 
 }

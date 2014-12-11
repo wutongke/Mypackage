@@ -15,8 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="用户账号"
-        android:textSize="20sp"
-        android:layout_centerVertical="true"
+        android:textSize="25sp"
+        android:layout_marginTop="50dp"
         />
     <EditText 
         android:id="@+id/name"
@@ -26,17 +26,42 @@
         android:layout_alignTop="@+id/nametitle"
         android:layout_marginLeft="20dp"
         android:singleLine="true"
-        android:hint="手机号或者邮箱"
+        android:inputType="number"
+        android:hint="11位手机号"
         />
-
+    <TextView 
+        android:id="@+id/confirmtextbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/nametitle"
+        android:text="发送验证码"
+        android:background="#7f7f00"
+        android:textColor="#ffffff"
+        android:padding="3dp"
+        android:textSize="20sp"
+        android:layout_centerVertical="true"
+        />
+	<EditText 
+	    android:id="@+id/confirmtext"
+	    android:layout_width="100dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="20dp"
+	    android:layout_toRightOf="@+id/confirmtextbtn"
+	    android:layout_alignTop="@+id/confirmtextbtn"
+	    android:hint="4位验证码"
+	    android:inputType="number"
+	    android:textSize="15sp"
+	    
+	    />
     <TextView 
         android:id="@+id/pwdtitle"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/nametitle"
+        android:layout_below="@+id/confirmtextbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="密       码"
-        android:textSize="20sp"
+        android:textSize="25sp"
         />
     <EditText 
         android:id="@+id/pwd"
@@ -53,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="确认密码"
-        android:textSize="20sp"
+        android:textSize="25sp"
         />
     <EditText 
         android:id="@+id/pwdConfirm"
@@ -66,14 +91,14 @@
         />
     <Button 
         android:id="@+id/joinbutton"
-        android:layout_width="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="确定"
         android:textSize="30dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
-        
         />
     
 </RelativeLayout>

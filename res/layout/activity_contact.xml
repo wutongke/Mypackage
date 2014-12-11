@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xiangxm.checkpackage.ContactActivity" >
+
+    <LinearLayout
+        android:id="@+id/linearlayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+        <RadioGroup
+            android:id="@+id/personlistbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_marginLeft="40dp"
+            android:padding="5dp" >
+
+            <RadioButton
+                android:id="@+id/persontypea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="@drawable/personlistbtn"
+                android:text="寄件人地址"
+                android:checked="true"
+                android:textSize="15dp" />
+
+            <RadioButton
+                android:id="@+id/persontypeb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/personlistbtn"
+                android:text="收件人地址"
+                android:textSize="15dp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/addnewperson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:text="新增"
+            android:textColor="#ff0000"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/personlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayout1"
+        android:layout_marginTop="5dp" >
+    </ListView>
+
+</RelativeLayout>

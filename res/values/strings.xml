@@ -20,5 +20,11 @@
     <string name="title_activity_my_set">MySetActivity</string>
     <string name="title_activity_new_ding">NewDingActivity</string>
     <string name="title_activity_my_order">MyOrderActivity</string>
+    <string name="title_activity_my_send">MySendActivity</string>
+    <string name="title_activity_contact">ContactActivity</string>
+    <string name="title_activity_new_person">NewPersonActivity</string>
+    <string name="title_activity_person_modify">PersonModifyActivity</string>
+    <string name="title_activity_modify_mobile_num">ModifyMobileNumActivity</string>
+    <string name="title_activity_modify_pwd">ModifyPwdActivity</string>
 
 </resources>

@@ -53,4 +53,12 @@
 	    <item >短信验证码</item>
 	    
 	</string-array>
+	<string-array name="ordervolumevalue">
+	    <item>一般快件</item>
+	    <item>大件物品</item>
+	</string-array>
+	<string-array name="ordercosttypevalue">
+	    <item>选择到付</item>
+	    <item>寄付现结</item>
+	</string-array>
 </resources>

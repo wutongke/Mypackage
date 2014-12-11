@@ -6,12 +6,15 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="15" />
+        android:targetSdkVersion="18" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:name="com.xiangxm.myapp.MyApplication"
@@ -24,13 +27,6 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-        <!--
-             <activity
-            android:name=".MainActivity"
-            android:theme="@style/MY_MEIZU_UI"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        -->
         <activity
             android:name=".SelectCompanyActivity"
             android:screenOrientation="portrait"
@@ -60,13 +56,15 @@
         </activity>
         <activity android:name=".PersonActivity" >
         </activity>
+        <!--
         <activity
             android:name="com.xiangxm.contact.ContactActivity"
             android:label="Contact" >
         </activity>
         <activity android:name="com.xiangxm.contact.UserDetail" />
         <activity android:name="com.xiangxm.contact.AddNew" />
-        <activity android:name="com.xiangxm.contact.MainPrivacy" />
+        <activity android:name="com.xiangxm.contact.MainPrivacy" />
+        -->
         <activity
             android:name=".ContactActivity"
             android:label="@string/title_activity_person" >
@@ -102,6 +100,26 @@
         <activity
             android:name=".MyOrderActivity"
             android:label="@string/title_activity_my_order" >
+        </activity>
+        <activity
+            android:name=".MySendActivity"
+            android:label="@string/title_activity_my_send" >
+        </activity>
+        <activity
+            android:name=".NewPersonActivity"
+            android:label="@string/title_activity_new_person" >
+        </activity>
+        <activity
+            android:name=".PersonModifyActivity"
+            android:label="@string/title_activity_person_modify" >
+        </activity>
+        <activity
+            android:name=".ModifyMobileNumActivity"
+            android:label="@string/title_activity_modify_mobile_num" >
+        </activity>
+        <activity
+            android:name=".ModifyPwdActivity"
+            android:label="@string/title_activity_modify_pwd" >
         </activity>
     </application>
 

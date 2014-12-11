@@ -53,17 +53,9 @@ public class DBHelper {
 		values.put("name", user.username);
 		values.put("pwd", user.userpwd);
 		values.put("mobilephone", user.mobilePhone);
-		values.put("officephone", user.officePhone);
-		values.put("familyphone", user.familyPhone);
 		values.put("address", user.address);
-		values.put("othercontact", user.otherContact);
-		values.put("email",user.email);
-		values.put("position", user.position);
-		values.put("company", user.company);
-		values.put("zipcode", user.zipCode);
-		values.put("remark", user.remark);
-		values.put("imageid", user.imageId);
 		values.put("privacy", user.privacy);
+		values.put("senderorreceive", user.senderorreceive);
 		return dbInstance.insert(DB_TABLENAME, null, values);
 	}
 	
@@ -73,12 +65,12 @@ public class DBHelper {
 	 * @return list
 	 */
 	
-	public ArrayList getAllUser(boolean privacy) {
-		ArrayList list = new ArrayList();
+	public ArrayList<User> getAllUser(boolean privacy) {
+		ArrayList<User> list = new ArrayList<User>();
 		Cursor cursor = null;
 		if(privacy) {
 			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","pwd","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid"}, 
+					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive"},  
 					"privacy=1", 
 					null, 
 					null, 
@@ -86,7 +78,7 @@ public class DBHelper {
 					null);
 		} else {
 			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","pwd","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid"}, 
+					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive"}, 
 					"privacy=0",
 					null, 
 					null, 
@@ -96,44 +88,97 @@ public class DBHelper {
 		 
 		
 		while(cursor.moveToNext()) {
-			HashMap item = new HashMap();
-			item.put("_id", cursor.getInt(cursor.getColumnIndex("_id")));
-			item.put("name", cursor.getString(cursor.getColumnIndex("name")));
-			item.put("pwd", cursor.getString(cursor.getColumnIndex("pwd")));
-			item.put("mobilephone", cursor.getString(cursor.getColumnIndex("mobilephone")));
-			item.put("officephone", cursor.getString(cursor.getColumnIndex("officephone")));
-			item.put("familyphone", cursor.getString(cursor.getColumnIndex("familyphone")));
-			item.put("address", cursor.getString(cursor.getColumnIndex("address")));
-			item.put("othercontact", cursor.getString(cursor.getColumnIndex("othercontact")));
-			item.put("email", cursor.getString(cursor.getColumnIndex("email")));
-			item.put("position", cursor.getString(cursor.getColumnIndex("position")));
-			item.put("company", cursor.getString(cursor.getColumnIndex("company")));
-			item.put("zipcode", cursor.getString(cursor.getColumnIndex("zipcode")));
-			item.put("remark", cursor.getString(cursor.getColumnIndex("remark")));
-			item.put("imageid", cursor.getInt(cursor.getColumnIndex("imageid")));
-			list.add(item);
+			User user = new User();
+			user._id = cursor.getInt(cursor.getColumnIndex("_id"));
+			user.username = cursor.getString(cursor.getColumnIndex("name"));
+			user.userpwd = cursor.getString(cursor.getColumnIndex("pwd"));
+			user.mobilePhone = cursor.getString(cursor.getColumnIndex("mobilephone"));
+			user.address = cursor.getString(cursor.getColumnIndex("address"));
+			user.senderorreceive = cursor.getInt(cursor.getColumnIndex("senderorreceive"));
+			list.add(user);
 		}
 		
 		return list;
 	}
-
+	public ArrayList<User> getAllSender() {
+		ArrayList<User> list = new ArrayList<User>();
+		Cursor cursor = null;
+			cursor = dbInstance.query(DB_TABLENAME, 
+					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive"}, 
+					"senderorreceive=1", 
+					null, 
+					null, 
+					null, 
+					null);
+		
+		while(cursor.moveToNext()) {
+			User user = new User();
+			user._id = cursor.getInt(cursor.getColumnIndex("_id"));
+			user.username = cursor.getString(cursor.getColumnIndex("name"));
+			user.userpwd = cursor.getString(cursor.getColumnIndex("pwd"));
+			user.mobilePhone = cursor.getString(cursor.getColumnIndex("mobilephone"));
+			user.address = cursor.getString(cursor.getColumnIndex("address"));
+			user.senderorreceive = cursor.getInt(cursor.getColumnIndex("senderorreceive"));
+			list.add(user);
+		}
+		
+		return list;
+	}
+	public ArrayList<User> getAllRecriver() {
+		ArrayList<User> list = new ArrayList<User>();
+		Cursor cursor = null;
+			cursor = dbInstance.query(DB_TABLENAME, 
+					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive"}, 
+					"senderorreceive=2", 
+					null, 
+					null, 
+					null, 
+					null);
+		
+		while(cursor.moveToNext()) {
+			User user = new User();
+			user._id = cursor.getInt(cursor.getColumnIndex("_id"));
+			user.username = cursor.getString(cursor.getColumnIndex("name"));
+			user.userpwd = cursor.getString(cursor.getColumnIndex("pwd"));
+			user.mobilePhone = cursor.getString(cursor.getColumnIndex("mobilephone"));
+			user.address = cursor.getString(cursor.getColumnIndex("address"));
+			user.senderorreceive = cursor.getInt(cursor.getColumnIndex("senderorreceive"));
+			list.add(user);
+		}
+		
+		return list;
+	}
 	
+	public User getById(int id){
+		User user = new User();
+		Cursor cursor = null;
+			cursor = dbInstance.query(DB_TABLENAME, 
+					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive"}, 
+					"_id="+id, 
+					null, 
+					null, 
+					null, 
+					null);
+		
+		while(cursor.moveToNext()) {
+			
+			user._id = cursor.getInt(cursor.getColumnIndex("_id"));
+			user.username = cursor.getString(cursor.getColumnIndex("name"));
+			user.userpwd = cursor.getString(cursor.getColumnIndex("pwd"));
+			user.mobilePhone = cursor.getString(cursor.getColumnIndex("mobilephone"));
+			user.address = cursor.getString(cursor.getColumnIndex("address"));
+			user.senderorreceive = cursor.getInt(cursor.getColumnIndex("senderorreceive"));
+		}
+		
+		return user;
+	}
 	public void modify(User user) {
 		ContentValues values = new ContentValues();
 		values.put("name", user.username);
 		values.put("pwd", user.userpwd);
 		values.put("mobilephone", user.mobilePhone);
-		values.put("officephone", user.officePhone);
-		values.put("familyphone", user.familyPhone);
 		values.put("address", user.address);
-		values.put("othercontact", user.otherContact);
-		values.put("email",user.email);
-		values.put("position", user.position);
-		values.put("company", user.company);
-		values.put("zipcode", user.zipCode);
-		values.put("remark", user.remark);
-		values.put("imageid", user.imageId);
-		
+		values.put("senderorreceive", user.senderorreceive);
 		dbInstance.update(DB_TABLENAME, values, "_id=?", new String[]{String.valueOf(user._id)});
 	}
 	
@@ -151,38 +196,6 @@ public class DBHelper {
 	}
 	
 	
-	public ArrayList getUsers(String condition, boolean privacy) {
-		ArrayList list = new ArrayList();
-		String strSelection = "";
-		if(privacy) {
-			strSelection = "and privacy = 1";
-		} else {
-			strSelection = "and privacy = 0";
-		}
-		String sql = "select * from " + DB_TABLENAME + " where 1=1 and (name like '%" + condition + "%' " +
-				"or mobilephone like '%" + condition + "%' or familyphone like '%" + condition + "%' " +
-						"or officephone like '%" + condition + "%')" + strSelection;
-		Cursor cursor = dbInstance.rawQuery(sql, null);
-		while(cursor.moveToNext()) {
-			HashMap item = new HashMap();
-			item.put("_id", cursor.getInt(cursor.getColumnIndex("_id")));
-			item.put("name", cursor.getString(cursor.getColumnIndex("name")));
-			item.put("pwd", cursor.getString(cursor.getColumnIndex("pwd")));
-			item.put("mobilephone", cursor.getString(cursor.getColumnIndex("mobilephone")));
-			item.put("officephone", cursor.getString(cursor.getColumnIndex("officephone")));
-			item.put("familyphone", cursor.getString(cursor.getColumnIndex("familyphone")));
-			item.put("address", cursor.getString(cursor.getColumnIndex("address")));
-			item.put("othercontact", cursor.getString(cursor.getColumnIndex("othercontact")));
-			item.put("email", cursor.getString(cursor.getColumnIndex("email")));
-			item.put("position", cursor.getString(cursor.getColumnIndex("position")));
-			item.put("company", cursor.getString(cursor.getColumnIndex("company")));
-			item.put("zipcode", cursor.getString(cursor.getColumnIndex("zipcode")));
-			item.put("remark", cursor.getString(cursor.getColumnIndex("remark")));
-			item.put("imageid", cursor.getInt(cursor.getColumnIndex("imageid")));
-			list.add(item);
-		}
-		return list;
-	}
 	
 	public void deleteMarked(ArrayList<Integer> deleteId) {
 		StringBuffer  strDeleteId = new StringBuffer();
@@ -201,50 +214,6 @@ public class DBHelper {
 		
 	}
 	
-	public void backupData(boolean privacy) {
-		StringBuffer sqlBackup = new StringBuffer();
-		Cursor cursor = null;
-		if(privacy) {
-			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","pwd","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid,privacy"}, 
-					"privacy=1", 
-					null, 
-					null, 
-					null, 
-					null);
-		} else {
-			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","pwd","mobilephone","officephone","familyphone","address","othercontact","email","position","company","zipcode","remark","imageid,privacy"}, 
-					"privacy=0",
-					null, 
-					null, 
-					null, 
-					null);
-		}
-		 
-		
-		while(cursor.moveToNext()) {
-			sqlBackup.append("insert into " + DB_TABLENAME + "(name,mobilephone,officephone,familyphone,address,othercontact,email,position,company,zipcode,remark,imageid,privacy)")
-			.append(" values ('")
-			.append(cursor.getString(cursor.getColumnIndex("name"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("pwd"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("mobilephone"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("officephone"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("familyphone"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("address"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("othercontact"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("email"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("position"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("company"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("zipcode"))).append("','")
-			.append(cursor.getString(cursor.getColumnIndex("remark"))).append("',")
-			.append(cursor.getInt(cursor.getColumnIndex("imageid"))).append(",")
-			.append(cursor.getInt(cursor.getColumnIndex("privacy")))
-			.append(");").append("\n");
-		}
-		saveDataToFile(sqlBackup.toString(),privacy);
-		
-	}
 
 	
 	private void saveDataToFile(String strData,boolean privacy) {
@@ -328,17 +297,9 @@ public class DBHelper {
 					   .append("name text,")
 					   .append("pwd text,")
 					   .append("mobilephone text,")
-					   .append("officephone text,")
-					   .append("familyphone text,")
 					   .append("address text,")
-					   .append("othercontact text,")
-					   .append("email text,")
-					   .append("position text,")
-					   .append("company text,")
-					   .append("zipcode text,")
-					   .append("remark text,")
-					   .append("imageid int,")
-					   .append("privacy int ")
+					   .append("privacy int,")
+					   .append("senderorreceive int")
 					   .append(")");
 			System.out.println(tableCreate.toString());
 			db.execSQL(tableCreate.toString());

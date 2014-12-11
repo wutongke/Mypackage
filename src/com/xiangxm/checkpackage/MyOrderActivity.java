@@ -30,7 +30,6 @@ public class MyOrderActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_order);
-		orderListView = (ListView)findViewById(R.id.orderlist);
 		orderAdapter = new ArrayAdapter<String>(MyOrderActivity.this,
 				android.R.layout.simple_list_item_1, orderListData);
 		orderListView.setAdapter(orderAdapter);

@@ -51,24 +51,16 @@ public class LoginActivity extends Activity {
 				int count = 0;
 				Iterator temp = result.iterator();
 				while(temp.hasNext()){
-					HashMap tempU = (HashMap) temp.next();
-					if(name.getText().toString().equals(tempU.get("name"))){
-//						Intent intent = new Intent(LoginActivity.this,
-//								WelcomeActivity.class);
-//						startActivity(intent);
-//						LoginConstant.isLogin = true;
-//						LoginConstant.loginName = (String) tempU
-//								.get("name");
-//						LoginActivity.this.finish();
-//						break;
-						if (pwd.getText().toString().equals(tempU.get("pwd"))) {
+					User tempU = (User) temp.next();
+					if(name.getText().toString().equals(tempU.mobilePhone)){
+						if (pwd.getText().toString().equals(tempU.userpwd)) {
 							Intent intent = new Intent(LoginActivity.this,
-									WelcomeActivity.class);
+									PersonActivity.class);
 							intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 							startActivity(intent);
 							LoginConstant.isLogin = true;
-							LoginConstant.loginName = (String) tempU
-									.get("name");
+							LoginConstant.loginMobileNum = (String) tempU
+									.username;
 							LoginActivity.this.finish();
 							break;
 						}
