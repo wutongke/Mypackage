@@ -1,16 +1,95 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.xiangxm.checkpackage.ModifyPwdActivity" >
+    android:orientation="vertical"
+    tools:context="com.xiangxm.checkpackage.ModifyMobileNumActivity" >
+	<TextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="50dp"
+	    android:text="更新密码"
+	    android:textSize="30dp"
+	    android:gravity="center_horizontal"
+	    />
+    <LinearLayout 
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/list_bg2"
+        >
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="原密码"
+            android:textSize="15sp"
+            />
+        <EditText 
+            android:id="@+id/modify_pwd_oldpwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:hint="请输入原密码"
+            android:layout_marginLeft="20dp"
+            />
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/list_bg2"
+        >
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="新密码"
+            android:textSize="15sp"
+            />
+        <EditText 
+            android:id="@+id/modify_pwd_newpwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请新输入新密码"
+            android:textSize="15sp"
+            android:layout_marginLeft="20dp"
+            />
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/list_bg2"
+        >
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="确定新密码"
+            android:textSize="15sp"
+            />
+        <EditText 
+            android:id="@+id/modify_pwd_confirm_newpwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请新输入新密码"
+            android:textSize="15sp"
+            android:layout_marginLeft="20dp"
+            />
+    </LinearLayout>
+    
+	<Button 
+	    android:id="@+id/modify_pwd_num_submit"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="10dp"
+	    android:background="#ff5656"
+	    android:text="提        交"
+	    android:textSize="20dp"
+	    />
+</LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
-</RelativeLayout>

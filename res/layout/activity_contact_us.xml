@@ -2,40 +2,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00ffff"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.xiangxm.checkpackage.ContactUsActivity" >
 
-    <TextView 
-        android:layout_width="wrap_content" 
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-       	android:layout_marginTop="50dp"
+        android:layout_marginTop="50dp"
+        android:text="关于我们"
         android:textColor="#ff7f00"
-        android:text="说明"
-        android:textSize="50sp"
-        />
-    <TextView 
-        android:layout_width="wrap_content" 
+        android:textSize="50sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="本软件是一个个人收发快递智能网络系统"
-        android:textSize="30sp"
-        />
-    
-    <TextView 
+        android:textSize="25sp"
+        android:text="项目编号：\n14212026\n\n项目成员：\n杜若芸 21212107\n程    谦 21212106\n郭紫莹 21212113\n王北辰 21212108\n
+				"
+         />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Email:xxx@163.com\n\nCopy right© 2014 "
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textSize="15sp"
         android:layout_marginBottom="20dp"
-        />
+        android:gravity="center"
+        android:text="Email:xxx@163.com\n\nCopy right© 2014 "
+        android:textSize="15sp" />
 
 </RelativeLayout>

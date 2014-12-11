@@ -51,7 +51,7 @@ public class WelcomeActivity extends Activity {
 	}
 	public void ic_send(View view) {
 		// TODO Auto-generated method stub
-		Intent query = new Intent(WelcomeActivity.this,SendActivity.class);
+		Intent query = new Intent(WelcomeActivity.this,MySendActivity.class);
 		startActivity(query);
 	}
 	public void ic_receive(View view) {

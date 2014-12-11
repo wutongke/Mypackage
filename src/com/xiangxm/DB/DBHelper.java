@@ -70,7 +70,7 @@ public class DBHelper {
 		Cursor cursor = null;
 		if(privacy) {
 			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive"},  
+					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive","privacy"},  
 					"privacy=1", 
 					null, 
 					null, 
@@ -78,7 +78,7 @@ public class DBHelper {
 					null);
 		} else {
 			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive"}, 
+					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive","privacy"}, 
 					"privacy=0",
 					null, 
 					null, 
@@ -95,6 +95,7 @@ public class DBHelper {
 			user.mobilePhone = cursor.getString(cursor.getColumnIndex("mobilephone"));
 			user.address = cursor.getString(cursor.getColumnIndex("address"));
 			user.senderorreceive = cursor.getInt(cursor.getColumnIndex("senderorreceive"));
+			user.privacy = cursor.getInt(cursor.getColumnIndex("privacy"));
 			list.add(user);
 		}
 		
@@ -153,7 +154,7 @@ public class DBHelper {
 		User user = new User();
 		Cursor cursor = null;
 			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive"}, 
+					new String[]{"_id","name","pwd","mobilephone","address","senderorreceive","privacy"}, 
 					"_id="+id, 
 					null, 
 					null, 
@@ -163,6 +164,7 @@ public class DBHelper {
 		while(cursor.moveToNext()) {
 			
 			user._id = cursor.getInt(cursor.getColumnIndex("_id"));
+			user.privacy = cursor.getInt(cursor.getColumnIndex("privacy"));
 			user.username = cursor.getString(cursor.getColumnIndex("name"));
 			user.userpwd = cursor.getString(cursor.getColumnIndex("pwd"));
 			user.mobilePhone = cursor.getString(cursor.getColumnIndex("mobilephone"));
@@ -178,6 +180,7 @@ public class DBHelper {
 		values.put("pwd", user.userpwd);
 		values.put("mobilephone", user.mobilePhone);
 		values.put("address", user.address);
+		values.put("privacy", user.privacy);
 		values.put("senderorreceive", user.senderorreceive);
 		dbInstance.update(DB_TABLENAME, values, "_id=?", new String[]{String.valueOf(user._id)});
 	}
