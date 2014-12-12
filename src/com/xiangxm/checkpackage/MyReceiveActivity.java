@@ -1,5 +1,6 @@
 package com.xiangxm.checkpackage;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ public class MyReceiveActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_receive);
+		ActionBar mainBar = getActionBar();
+		mainBar.setTitle("收快递");
 		if (!LoginConstant.isLogin) {
 			Toast.makeText(MyReceiveActivity.this, "请先登录", Toast.LENGTH_SHORT)
 					.show();

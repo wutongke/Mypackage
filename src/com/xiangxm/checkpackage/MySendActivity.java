@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -251,6 +252,9 @@ public class MySendActivity extends Activity {
 			startActivity(intent);
 			this.finish();
 		}
+		ActionBar mainBar = getActionBar();
+		mainBar.setTitle("发快递");
+		
 		initView();
 		order.number = System.currentTimeMillis()+"";
 		sender.setFocusable(true);
