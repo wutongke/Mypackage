@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="ic_query"
-            android:src="@drawable/ic_query" />
+            android:src="@drawable/transferquery" />
     </LinearLayout>
 
     <LinearLayout
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="ic_receive"
-            android:src="@drawable/ic_receive" />
+            android:src="@drawable/fakuaidi" />
     </LinearLayout>
 
     <LinearLayout
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="ic_join"
-            android:src="@drawable/ic_join" />
+            android:src="@drawable/join" />
 
         <ImageView
             android:id="@+id/ic_login"
@@ -94,15 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="ic_login"
-            android:src="@drawable/ic_login" />
-
-        <ImageView
-            android:id="@+id/ic_contact"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="ic_contact"
-            android:src="@drawable/ic_contract" />
+            android:src="@drawable/login" />
 
         <ImageView
             android:id="@+id/ic_set"
@@ -111,6 +103,14 @@
             android:layout_weight="1"
             android:onClick="ic_set"
             android:src="@drawable/ic_set" />
+        
+        <ImageView
+            android:id="@+id/ic_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="ic_contact"
+            android:src="@drawable/contactus" />
     </LinearLayout>
 
 </LinearLayout>

@@ -29,6 +29,7 @@ import com.xiangxm.DB.DBHelper;
 import com.xiangxm.DB.OrderDB;
 import com.xiangxm.cls.Order;
 import com.xiangxm.utils.Constants;
+import com.xiangxm.utils.LoginConstant;
 
 public class MySendActivity extends Activity {
 
@@ -199,6 +200,7 @@ public class MySendActivity extends Activity {
 				order.type = costType.getSelectedItem().toString();
 				order.time = sendTimeView.getText().toString();
 				order.otherinfo = otherInfo.getText().toString();
+				order.cost = 15+"";
 				if(messageCheckBox.isChecked()){
 					order.message = 1;
 				}else{
@@ -231,6 +233,12 @@ public class MySendActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_send);
+		if(!LoginConstant.isLogin){
+			Toast.makeText(MySendActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent(MySendActivity.this,LoginActivity.class);
+			startActivity(intent);
+			this.finish();
+		}
 		initView();
 		sender.setFocusable(true);
 		sender.setFocusableInTouchMode(true);

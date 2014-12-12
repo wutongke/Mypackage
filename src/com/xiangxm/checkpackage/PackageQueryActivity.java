@@ -454,13 +454,14 @@ public class PackageQueryActivity extends Activity implements
 
 	@Override
 	public void onBackPressed() {
-		long currentTime = System.currentTimeMillis();
-		if ((currentTime - touchTime) >= waitTime) {
-			Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
-			touchTime = currentTime;
-		} else {
-			finish();
-		}
+//		long currentTime = System.currentTimeMillis();
+//		if ((currentTime - touchTime) >= waitTime) {
+//			Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+//			touchTime = currentTime;
+//		} else {
+//			finish();
+//		}
+		finish();
 	}
 
 	private TextView title;

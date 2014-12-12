@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:id="@+id/alert_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/list_bg2"
+        android:textSize="15sp"
+        android:gravity="center"
+        />
+    <TextView 
+        
+        android:id="@+id/alert_cost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/list_bg2"
+        android:textSize="15sp"
+        android:gravity="center"
+        />
+    
+    <EditText 
+        android:id="@+id/alert_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:password="true"
+        android:textSize="15sp"
+        />
+</LinearLayout>

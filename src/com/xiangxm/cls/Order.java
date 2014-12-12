@@ -34,6 +34,9 @@ public class Order {
 	public String cost;
 	public String sender;
 	public String receiver;
+	/**
+	 * 0未付款，1已付款
+	 */
 	public int isover;//是否确认过 0 没有确认，1确认过
 }
 	

@@ -42,7 +42,8 @@ public class WelcomeActivity extends Activity {
 	
 	public void ic_system(View view) {
 		// TODO Auto-generated method stub
-		Toast.makeText(WelcomeActivity.this, "请选择其他按钮", Toast.LENGTH_SHORT).show();
+		Intent query = new Intent(WelcomeActivity.this,ShowFunction.class);
+		startActivity(query);
 	}
 	public void ic_query(View view) {
 		// TODO Auto-generated method stub

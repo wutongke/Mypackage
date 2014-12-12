@@ -93,6 +93,7 @@
                 <TextView
                     android:id="@+id/submit_ordervolume"
                     android:layout_width="match_parent"
+                    android:gravity="center"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp" />
             </LinearLayout>
@@ -114,6 +115,7 @@
                     android:id="@+id/submit_ordertype"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:layout_marginLeft="15dp"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -135,6 +137,7 @@
                     android:id="@+id/submit_ordercompany"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:layout_marginLeft="15dp"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -153,6 +156,7 @@
 
                 <TextView
                     android:id="@+id/submit_ordercosttype"
+                    android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp" />

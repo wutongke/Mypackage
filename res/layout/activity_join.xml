@@ -15,14 +15,14 @@
         android:layout_height="wrap_content"
         android:text="用户账号"
         android:textSize="20sp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         />
     <EditText 
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/nametitle"
-        android:layout_alignTop="@+id/nametitle"
+        android:layout_alignBottom="@+id/nametitle"
         android:layout_marginLeft="20dp"
         android:singleLine="true"
         android:inputType="number"
@@ -47,7 +47,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="20dp"
 	    android:layout_toRightOf="@+id/confirmtextbtn"
-	    android:layout_alignTop="@+id/confirmtextbtn"
+	    android:layout_alignBottom="@+id/confirmtextbtn"
 	    android:hint="4位验证码"
 	    android:inputType="number"
 	    android:textSize="15sp"
@@ -66,7 +66,7 @@
         android:id="@+id/pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/pwdtitle"
+        android:layout_alignBottom="@+id/pwdtitle"
         android:layout_alignLeft="@+id/name"
         android:singleLine="true"
         />
@@ -85,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/pwdConfirmtitle"
-        android:layout_alignTop="@+id/pwdConfirmtitle"
+        android:layout_alignBottom="@+id/pwdConfirmtitle"
         android:singleLine="true"
         />
     <Button 
