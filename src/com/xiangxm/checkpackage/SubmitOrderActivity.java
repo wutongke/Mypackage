@@ -142,22 +142,26 @@ public class SubmitOrderActivity extends Activity {
 			
 		}else if(!fromParentIntent.getStringExtra(Constants.ORDERNUMBER).equals("")){
 			order = myOrderHelper.getOrderByNumber(fromParentIntent.getStringExtra(Constants.ORDERNUMBER));
-			sender.setText(order.sender);
-			receive.setText(order.receiver);
-			weight.setText(order.weight+"");
-			volume.setText(order.volume);
-			sendTime.setText(order.time);
-			content.setText(order.content);
-			company.setText(order.company);
-			costType.setText(order.type);
-			otherInfo.setText(order.otherinfo);
-			if(order.message==1){
-				messageInfo.setText("是");
+			if (order!=null) {
+				sender.setText(order.sender);
+				receive.setText(order.receiver);
+				weight.setText(order.weight + "");
+				volume.setText(order.volume);
+				sendTime.setText(order.time);
+				content.setText(order.content);
+				company.setText(order.company);
+				costType.setText(order.type);
+				otherInfo.setText(order.otherinfo);
+				if (order.message == 1) {
+					messageInfo.setText("是");
+				} else {
+					messageInfo.setText("否");
+				}
+				cost.setText("15元");
+				payBtn.setVisibility(View.GONE);
 			}else{
-				messageInfo.setText("否");
+				Toast.makeText(SubmitOrderActivity.this, "未提交过的订单", Toast.LENGTH_SHORT).show();
 			}
-			cost.setText("15元");
-			payBtn.setVisibility(View.GONE);
 		}
 		else{
 			Toast.makeText(SubmitOrderActivity.this, "订单获取失败", Toast.LENGTH_SHORT).show();
