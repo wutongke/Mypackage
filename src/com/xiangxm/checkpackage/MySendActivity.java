@@ -10,6 +10,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,14 +26,17 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.zxing.WriterException;
 import com.xiangxm.DB.DBHelper;
 import com.xiangxm.DB.OrderDB;
 import com.xiangxm.cls.Order;
 import com.xiangxm.utils.Constants;
 import com.xiangxm.utils.LoginConstant;
+import com.zxing.encoding.EncodingHandler;
 
 public class MySendActivity extends Activity {
 
+	private Order order= new Order();
 	private Button sender;
 	private Button receive;
 	public static final String FORPERSON="forPerson";
@@ -189,8 +193,8 @@ public class MySendActivity extends Activity {
 					Toast.makeText(MySendActivity.this, "请填写完整信息", Toast.LENGTH_SHORT).show();
 					return;
 				}
-				Order order= new Order();
-				order.number = System.currentTimeMillis()+"";
+				
+				
 				order.sender = sender.getText().toString();
 				order.receiver = receive.getText().toString();
 				order.weight = Integer.valueOf(weight.getText().toString());
@@ -224,7 +228,15 @@ public class MySendActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				twoCodeImageView.setVisibility(View.VISIBLE);
+				try {
+					Bitmap qrCodeBitmap = EncodingHandler.createQRCode(order.number, 200);
+					twoCodeImageView.setImageBitmap(qrCodeBitmap);
+					twoCodeImageView.setVisibility(View.VISIBLE);
+				} catch (WriterException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
 		});
 	}
@@ -240,6 +252,7 @@ public class MySendActivity extends Activity {
 			this.finish();
 		}
 		initView();
+		order.number = System.currentTimeMillis()+"";
 		sender.setFocusable(true);
 		sender.setFocusableInTouchMode(true);
 		sender.requestFocus();

@@ -76,6 +76,15 @@ public class PersonActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		findViewById(R.id.order_info).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(PersonActivity.this,MyOrderActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {

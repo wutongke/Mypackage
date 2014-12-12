@@ -15,6 +15,10 @@
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />  
+    <uses-permission android:name="android.permission.CAMERA" />  
+    <uses-feature android:name="android.hardware.camera" />  
+    <uses-feature android:name="android.hardware.camera.autofocus" />  
 
     <application
         android:name="com.xiangxm.myapp.MyApplication"
@@ -63,7 +67,7 @@
         </activity>
         <activity android:name="com.xiangxm.contact.UserDetail" />
         <activity android:name="com.xiangxm.contact.AddNew" />
-        <activity android:name="com.xiangxm.contact.MainPrivacy" />
+        <activity android:name="com.xiangxm.contact.MainPrivacy" />
         -->
         <activity
             android:name=".ContactActivity"
@@ -129,6 +133,18 @@
             android:name=".IllegalGoodsActivity"
             android:label="@string/title_activity_illegal_goods" >
         </activity>
+        <activity
+            android:name=".MyReceiveActivity"
+            android:label="@string/title_activity_my_receive" >
+        </activity>
+        <!-- 二维码扫描界面 -->
+        <activity  
+            android:configChanges="orientation|keyboardHidden"  
+            android:name="com.zxing.activity.CaptureActivity"  
+            android:screenOrientation="portrait"  
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"  
+            android:windowSoftInputMode="stateAlwaysHidden" >  
+        </activity>  
     </application>
 
 </manifest>

@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/nametitlelogin"
         android:layout_toRightOf="@+id/nametitlelogin" 
+        android:inputType="number"
         android:singleLine="true"
         android:hint="手机号"
         />

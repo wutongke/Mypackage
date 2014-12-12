@@ -32,6 +32,7 @@ public class MyOrderActivity extends Activity {
 		setContentView(R.layout.activity_my_order);
 		orderAdapter = new ArrayAdapter<String>(MyOrderActivity.this,
 				android.R.layout.simple_list_item_1, orderListData);
+		orderListView = (ListView)findViewById(R.id.myorder_list);
 		orderListView.setAdapter(orderAdapter);
 		orderListView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -39,16 +40,6 @@ public class MyOrderActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				final int pos = position;
-				new AlertDialog.Builder(MyOrderActivity.this).setTitle("确定订单？")
-				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						Toast.makeText(MyOrderActivity.this, "确认成功", Toast.LENGTH_SHORT).show();
-					}
-				}).setNegativeButton("取消", null).show();
 			}
 		});
 	}
@@ -62,8 +53,8 @@ public class MyOrderActivity extends Activity {
 		ArrayList<String> temp = new ArrayList<String>();
 		Iterator tempIterator = tempOrder.iterator();
 		while(tempIterator.hasNext()){
-			HashMap order = (HashMap) tempIterator.next();
-			temp.add("订单名： "+order.get("name")+"\n订单号： "+order.get("number"));
+			Order order = (Order) tempIterator.next();
+			temp.add("发件人 :\n "+order.sender+"\n收件人:\n "+order.receiver);
 		}
 		orderListData.addAll(temp);
 		orderAdapter.notifyDataSetInvalidated();
