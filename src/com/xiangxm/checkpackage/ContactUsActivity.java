@@ -1,5 +1,6 @@
 package com.xiangxm.checkpackage;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,5 +12,7 @@ public class ContactUsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_contact_us);
+		ActionBar mainBar = getActionBar();
+		mainBar.setTitle("About us");
 	}
 }
