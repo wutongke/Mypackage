@@ -47,8 +47,8 @@ public class NewDingActivity extends Activity {
 					OrderDB myOrder = new OrderDB(NewDingActivity.this);
 					myOrder.openDatabase();
 					Order temp = new Order();
-					temp.name = orderName.getText().toString();
-					temp.company = orderCompany.getText().toString();
+					temp.senderName = orderName.getText().toString();
+					temp.receiverName = orderCompany.getText().toString();
 					temp.number = orderNumber.getText().toString();
 					temp.sender = orderSender.getText().toString();
 					temp.receiver = orderReceive.getText().toString();

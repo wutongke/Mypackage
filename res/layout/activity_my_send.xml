@@ -2,11 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
+    android:orientation="vertical" >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,17 +19,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#E3E3E3"
+                android:focusable="true"
                 android:padding="10dp"
                 android:text="寄件人信息"
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/sendperson"
+                android:id="@+id/send_person"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:gravity="left|center_vertical"
-                android:text="点击添加寄件人信息"
+                android:hint="点击添加寄件人信息"
                 android:textSize="15dp" />
 
             <TextView
@@ -45,12 +42,12 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/reveiveperson"
+                android:id="@+id/reveive_person"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:gravity="left|center_vertical"
-                android:text="点击添加收件人信息"
+                android:hint="点击添加收件人信息"
                 android:textSize="15dp" />
 
             <TextView
@@ -73,15 +70,16 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/weightm"
+                    android:id="@+id/send_weightm"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="15dp"
+                    android:gravity="center"
                     android:text="-"
-                    android:textSize="15sp" />
+                    android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/orderweight"
+                    android:id="@+id/send_orderweight"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -91,12 +89,13 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/weightP"
+                    android:id="@+id/send_weightP"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginRight="15dp"
+                    android:gravity="center"
                     android:text="+"
-                    android:textSize="15sp" />
+                    android:textSize="10sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -111,7 +110,7 @@
                     android:textSize="15sp" />
 
                 <Spinner
-                    android:id="@+id/ordervolume"
+                    android:id="@+id/send_ordervolume"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -131,7 +130,7 @@
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/ordertype"
+                    android:id="@+id/send_ordertype"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -161,74 +160,18 @@
                     android:textSize="15sp" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical" >
 
-                    <ScrollView
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/send_company"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:overScrollMode="ifContentScrolls"
-                        android:scrollbars="horizontal" >
-
-                        <RadioGroup
-                            android:id="@+id/companychoose"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal" >
-
-                            <RadioButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="中通"
-                                android:textSize="@dimen/companytextsize" />
-
-                            <RadioButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="圆通"
-                                android:textSize="@dimen/companytextsize" />
-
-                            <RadioButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="申通"
-                                android:textSize="@dimen/companytextsize" />
-
-                            <RadioButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="汇通"
-                                android:textSize="@dimen/companytextsize" />
-
-                            <RadioButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="天天"
-                                android:textSize="@dimen/companytextsize" />
-
-                            <RadioButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="韵达"
-                                android:textSize="@dimen/companytextsize" />
-
-                            <RadioButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="全峰"
-                                android:textSize="@dimen/companytextsize" />
-
-                            <RadioButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="EMS"
-                                android:textSize="@dimen/companytextsize" />
-                        </RadioGroup>
-                    </ScrollView>
+                        android:entries="@array/send_conpany_choose" />
 
                     <Button
-                        android:id="@+id/timesortbtn"
+                        android:id="@+id/send_timesortbtn"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="#ffffff"
@@ -237,13 +180,13 @@
                         android:textSize="15sp" />
 
                     <TextView
-                        android:id="@+id/timesort"
+                        android:id="@+id/send_timesort"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:textSize="12sp" />
 
                     <Button
-                        android:id="@+id/costsortbtn"
+                        android:id="@+id/send_costsortbtn"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="#ffffff"
@@ -252,7 +195,7 @@
                         android:textSize="15sp" />
 
                     <TextView
-                        android:id="@+id/costsort"
+                        android:id="@+id/send_costsort"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:textSize="12sp" />
@@ -271,7 +214,7 @@
                     android:textSize="15sp" />
 
                 <Spinner
-                    android:id="@+id/ordercosttype"
+                    android:id="@+id/send_ordercosttype"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -291,8 +234,9 @@
                     android:textSize="15sp" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:orientation="vertical" >
 
                     <LinearLayout
@@ -301,40 +245,47 @@
                         android:orientation="horizontal" >
 
                         <Button
-                            android:id="@+id/ordersendtype1"
+                            android:id="@+id/send_ordersendtype1"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#ffffff"
-                            android:gravity="left|center_vertical"
+                            android:layout_height="20dp"
+                            android:layout_weight="1"
+                            android:background="#ff5656"
+                            android:gravity="center"
                             android:text="马上寄件"
-                            android:layout_weight="1"
-                            android:textSize="15sp" />
+                            android:textColor="#ffffff"
+                            android:textSize="10sp" />
 
                         <Button
-                            android:id="@+id/ordersendtype2"
+                            android:id="@+id/send_ordersendtype2"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#ffffff"
-                            android:gravity="left|center_vertical"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="#ff5656"
+                            android:gravity="center"
                             android:text="日期选择"
-                            android:layout_weight="1"
-                            android:textSize="15sp" />
+                            android:textColor="#ffffff"
+                            android:textSize="10sp" />
 
                         <Button
-                            android:id="@+id/ordersendtype3"
+                            android:id="@+id/send_ordersendtype3"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#ffffff"
-                            android:gravity="left|center_vertical"
-                            android:text="时间选择"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_weight="1"
-                            android:textSize="15sp" />
+                            android:background="#ff5656"
+                            android:gravity="center"
+                            android:text="时间选择"
+                            android:textColor="#ffffff"
+                            android:textSize="10sp" />
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/ordersendtime"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/send_ordersendtime"
+                        android:layout_width="match_parent"
                         android:layout_height="30dp"
+                        android:gravity="center"
+                        android:hint="寄件日期和时间"
                         android:textSize="15dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -351,11 +302,13 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/send_otherinfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:gravity="center"
+                    android:hint="备注的信息"
                     android:textSize="15sp" />
             </LinearLayout>
 
@@ -366,29 +319,10 @@
                 android:padding="10dp"
                 android:text="生成快递订单"
                 android:textSize="20sp" />
-			
+
+            
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/ordertopay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="在线缴费"
-                    android:textSize="15sp" />
-
-                <Button
-                    android:id="@+id/ordertodingdan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="生成订单"
-                    android:textSize="15sp" />
-
-                
-            </LinearLayout>
-			<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
@@ -398,15 +332,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="短信通知"
+                    android:layout_weight="1"
                     android:textSize="15sp" />
 
                 <Button
                     android:id="@+id/ordertocode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#ff5656"
                     android:text="二维码生成"
+                    android:layout_weight="1"
+                    android:textColor="#ffffff"
                     android:textSize="15sp" />
             </LinearLayout>
+
             <ImageView
                 android:id="@+id/two_code_view"
                 android:layout_width="wrap_content"
@@ -414,6 +353,20 @@
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/two_code"
                 android:visibility="gone" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+                <Button
+                    android:id="@+id/ordertodingdan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ff5656"
+                    android:text="生成订单"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

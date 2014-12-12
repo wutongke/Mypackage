@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,11 +16,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.xiangxm.DB.OrderDB;
+import com.xiangxm.cls.Order;
 
 public class MyOrderActivity extends Activity {
 
 	private ArrayList<String> orderListData = new ArrayList<String>();
-	ArrayList<HashMap> tempOrder;
+	ArrayList<Order> tempOrder;
 	OrderDB myOrder;
 	private ArrayAdapter<String> orderAdapter;
 	private ListView orderListView;
@@ -46,9 +46,6 @@ public class MyOrderActivity extends Activity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
-						myOrder.delete( ((Integer)tempOrder.get(pos).get("_id")).intValue());
-						orderListData.remove(pos);
-						orderAdapter.notifyDataSetInvalidated();
 						Toast.makeText(MyOrderActivity.this, "确认成功", Toast.LENGTH_SHORT).show();
 					}
 				}).setNegativeButton("取消", null).show();

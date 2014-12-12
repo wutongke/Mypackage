@@ -61,4 +61,14 @@
 	    <item>选择到付</item>
 	    <item>寄付现结</item>
 	</string-array>
+	<string-array name="send_conpany_choose">
+	    <item>中通</item>
+	    <item>圆通</item>
+	    <item>申通</item>
+	    <item>汇通</item>
+	    <item>天天</item>
+	    <item>韵达</item>
+	    <item>全峰</item>
+	    <item>EMS</item>
+	</string-array>
 </resources>

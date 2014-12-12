@@ -14,6 +14,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
+
 import com.xiangxm.cls.Order;
 
 public class OrderDB {
@@ -49,17 +50,29 @@ public static final String DB_DBNAME="order";
 	 */
 	public boolean insert(Order order) {
 		ContentValues values = new ContentValues();
-		values.put("name", order.name);
+		values.put("senderName", order.senderName);
+		values.put("senderNum", order.senderNum);
+		values.put("sendAddress", order.sendAddress);
+		values.put("receiverName", order.receiverName);
+		values.put("receiverNum", order.receiverNum);
+		values.put("receiverAddress", order.receiverAddress);
+		values.put("weight", order.weight);
+		values.put("volume", order.volume);
+		values.put("type", order.type);
 		values.put("company", order.company);
-		values.put("number", order.number);
 		values.put("time", order.time);
+		values.put("otherinfo", order.otherinfo);
+		values.put("two_code", order.two_code);
+		values.put("message", order.message);
+		values.put("number", order.number);
 		values.put("content", order.content);
+		values.put("sendorreceive", order.sendorreceive);
 		values.put("cost", order.cost);
 		values.put("sender", order.sender);
 		values.put("receiver", order.receiver);
-		values.put("otherinfo", order.otherinfo);
 		values.put("isover", order.isover);
-		values.put("sendorreceive", order.sendorreceive);
+		
+		
 		if( dbInstance.insert(DB_TABLENAME, null, values)>0){
 			return true;
 		}else{
@@ -73,13 +86,11 @@ public static final String DB_DBNAME="order";
 	 * @return list
 	 */
 	
-	@SuppressWarnings("unchecked")
-	public ArrayList getAllOrder() {
-		ArrayList list = new ArrayList();
+	public ArrayList<Order> getAllOrder() {
+		ArrayList<Order> list = new ArrayList<Order>();
 		Cursor cursor = null;
 			cursor = dbInstance.query(DB_TABLENAME, 
-					new String[]{"_id","name","company","number","time","content","cost","sender","receiver","otherinfo",
-					"isover","sendorreceive"}, 
+					null, 
 					null, 
 					null, 
 					null, 
@@ -88,27 +99,36 @@ public static final String DB_DBNAME="order";
 		
 		while(cursor.moveToNext()) {
 			@SuppressWarnings("rawtypes")
-			HashMap item = new HashMap();
-			item.put("_id", cursor.getInt(cursor.getColumnIndex("_id")));
-			item.put("name", cursor.getString(cursor.getColumnIndex("name")));
-			item.put("company", cursor.getString(cursor.getColumnIndex("company")));
-			item.put("number", cursor.getString(cursor.getColumnIndex("number")));
-			item.put("time", cursor.getString(cursor.getColumnIndex("time")));
-			item.put("content", cursor.getString(cursor.getColumnIndex("content")));
-			item.put("cost", cursor.getString(cursor.getColumnIndex("cost")));
-			item.put("sender", cursor.getString(cursor.getColumnIndex("sender")));
-			item.put("receiver", cursor.getString(cursor.getColumnIndex("receiver")));
-			item.put("otherinfo", cursor.getString(cursor.getColumnIndex("otherinfo")));
-			item.put("isover", cursor.getInt(cursor.getColumnIndex("isover")));
-			item.put("sendorreceive", cursor.getInt(cursor.getColumnIndex("sendorreceive")));
-			
+			Order item = new Order();
+			item._id = cursor.getInt(cursor.getColumnIndex(""));
+			item.senderName = cursor.getString(cursor.getColumnIndex("senderName"));
+			item.sendAddress = cursor.getString(cursor.getColumnIndex("sendAddress"));
+			item.senderNum = cursor.getString(cursor.getColumnIndex("senderNum"));
+			item.receiverName = cursor.getString(cursor.getColumnIndex("receiverName"));
+			item.receiverNum = cursor.getString(cursor.getColumnIndex("receiverNum"));
+			item.receiverAddress = cursor.getString(cursor.getColumnIndex("receiverAddress"));
+			item.weight = cursor.getInt(cursor.getColumnIndex("weight"));
+			item.volume = cursor.getString(cursor.getColumnIndex("volume"));
+			item.type = cursor.getString(cursor.getColumnIndex("type"));
+			item.company = cursor.getString(cursor.getColumnIndex("company"));
+			item.time = cursor.getString(cursor.getColumnIndex("time"));
+			item.otherinfo = cursor.getString(cursor.getColumnIndex("otherinfo"));
+			item.two_code = cursor.getString(cursor.getColumnIndex("two_code"));
+			item.message = cursor.getInt(cursor.getColumnIndex("message"));
+			item.number = cursor.getString(cursor.getColumnIndex("number"));
+			item.content = cursor.getString(cursor.getColumnIndex("content"));
+			item.sendorreceive = cursor.getInt(cursor.getColumnIndex("sendorreceive"));
+			item.sender = cursor.getString(cursor.getColumnIndex("sender"));
+			item.receiver = cursor.getString(cursor.getColumnIndex("receiver"));
+			item.cost = cursor.getString(cursor.getColumnIndex("cost"));
+			item.isover = cursor.getInt(cursor.getColumnIndex("isover"));
 			list.add(item);
 		}
 		
 		return list;
 	}
-	public ArrayList getAllOrder(int sendOrReceive) {
-		ArrayList list = new ArrayList();
+	public ArrayList<Order> getAllOrder(int sendOrReceive) {
+		ArrayList<Order> list = new ArrayList<Order>();
 		Cursor cursor = null;
 			cursor = dbInstance.query(DB_TABLENAME, 
 					new String[]{"_id","name","company","number","time","content","cost","sender","receiver","otherinfo",
@@ -120,21 +140,29 @@ public static final String DB_DBNAME="order";
 					null);
 		
 		while(cursor.moveToNext()) {
-			@SuppressWarnings("rawtypes")
-			HashMap item = new HashMap();
-			item.put("_id", cursor.getInt(cursor.getColumnIndex("_id")));
-			item.put("name", cursor.getString(cursor.getColumnIndex("name")));
-			item.put("company", cursor.getString(cursor.getColumnIndex("company")));
-			item.put("number", cursor.getString(cursor.getColumnIndex("number")));
-			item.put("time", cursor.getString(cursor.getColumnIndex("time")));
-			item.put("content", cursor.getString(cursor.getColumnIndex("content")));
-			item.put("cost", cursor.getString(cursor.getColumnIndex("cost")));
-			item.put("sender", cursor.getString(cursor.getColumnIndex("sender")));
-			item.put("receiver", cursor.getString(cursor.getColumnIndex("receiver")));
-			item.put("otherinfo", cursor.getString(cursor.getColumnIndex("otherinfo")));
-			item.put("isover", cursor.getInt(cursor.getColumnIndex("isover")));
-			item.put("sendorreceive", cursor.getInt(cursor.getColumnIndex("sendorreceive")));
-			
+			Order item = new Order();
+			item._id = cursor.getInt(cursor.getColumnIndex(""));
+			item.senderName = cursor.getString(cursor.getColumnIndex("senderName"));
+			item.sendAddress = cursor.getString(cursor.getColumnIndex("sendAddress"));
+			item.senderNum = cursor.getString(cursor.getColumnIndex("senderNum"));
+			item.receiverName = cursor.getString(cursor.getColumnIndex("receiverName"));
+			item.receiverNum = cursor.getString(cursor.getColumnIndex("receiverNum"));
+			item.receiverAddress = cursor.getString(cursor.getColumnIndex("receiverAddress"));
+			item.weight = cursor.getInt(cursor.getColumnIndex("weight"));
+			item.volume = cursor.getString(cursor.getColumnIndex("volume"));
+			item.type = cursor.getString(cursor.getColumnIndex("type"));
+			item.company = cursor.getString(cursor.getColumnIndex("company"));
+			item.time = cursor.getString(cursor.getColumnIndex("time"));
+			item.otherinfo = cursor.getString(cursor.getColumnIndex("otherinfo"));
+			item.two_code = cursor.getString(cursor.getColumnIndex("two_code"));
+			item.message = cursor.getInt(cursor.getColumnIndex("message"));
+			item.number = cursor.getString(cursor.getColumnIndex("number"));
+			item.content = cursor.getString(cursor.getColumnIndex("content"));
+			item.sendorreceive = cursor.getInt(cursor.getColumnIndex("sendorreceive"));
+			item.sender = cursor.getString(cursor.getColumnIndex("sender"));
+			item.receiver = cursor.getString(cursor.getColumnIndex("receiver"));
+			item.cost = cursor.getString(cursor.getColumnIndex("cost"));
+			item.isover = cursor.getInt(cursor.getColumnIndex("isover"));
 			list.add(item);
 		}
 		
@@ -143,36 +171,70 @@ public static final String DB_DBNAME="order";
 	
 	public void modify(Order order) {
 		ContentValues values = new ContentValues();
-		values.put("name", order.name);
+		values.put("senderName", order.senderName);
+		values.put("senderNum", order.senderNum);
+		values.put("sendAddress", order.sendAddress);
+		values.put("receiverName", order.receiverName);
+		values.put("receiverNum", order.receiverNum);
+		values.put("receiverAddress", order.receiverAddress);
+		values.put("weight", order.weight);
+		values.put("volume", order.volume);
+		values.put("type", order.type);
 		values.put("company", order.company);
-		values.put("number", order.number);
 		values.put("time", order.time);
+		values.put("otherinfo", order.otherinfo);
+		values.put("two_code", order.two_code);
+		values.put("message", order.message);
+		values.put("number", order.number);
 		values.put("content", order.content);
-		values.put("cost", order.cost);
+		values.put("sendorreceive", order.sendorreceive);
 		values.put("sender", order.sender);
 		values.put("receiver", order.receiver);
-		values.put("otherinfo", order.otherinfo);
+		values.put("cost", order.cost);
 		values.put("isover", order.isover);
-		values.put("sendorreceive", order.sendorreceive);
 		
 		dbInstance.update(DB_TABLENAME, values, "_id=?", new String[]{String.valueOf(order._id)});
 	}
 	/**
-	 * 未完成
+	 * 获取Order
 	 * @param _id
 	 */
-	public void getUser(int _id){
+	public Order getUserById(int _id){
 		Cursor cursor = null;
 		cursor = dbInstance.query(DB_TABLENAME, 
-				new String[]{"_id","name","company","number","time","content","cost","sender","receiver","otherinfo",
-				"isover","sendorreceive"}, 
+				null, 
 				"_id="+_id, 
 				null, 
 				null, 
 				null, 
 				null);
 		if(cursor.moveToFirst()){
+			Order item = new Order();
+			item._id = cursor.getInt(cursor.getColumnIndex(""));
+			item.senderName = cursor.getString(cursor.getColumnIndex("senderName"));
+			item.sendAddress = cursor.getString(cursor.getColumnIndex("sendAddress"));
+			item.senderNum = cursor.getString(cursor.getColumnIndex("senderNum"));
+			item.receiverName = cursor.getString(cursor.getColumnIndex("receiverName"));
+			item.receiverNum = cursor.getString(cursor.getColumnIndex("receiverNum"));
+			item.receiverAddress = cursor.getString(cursor.getColumnIndex("receiverAddress"));
+			item.weight = cursor.getInt(cursor.getColumnIndex("weight"));
+			item.volume = cursor.getString(cursor.getColumnIndex("volume"));
+			item.type = cursor.getString(cursor.getColumnIndex("type"));
+			item.company = cursor.getString(cursor.getColumnIndex("company"));
+			item.time = cursor.getString(cursor.getColumnIndex("time"));
+			item.otherinfo = cursor.getString(cursor.getColumnIndex("otherinfo"));
+			item.two_code = cursor.getString(cursor.getColumnIndex("two_code"));
+			item.message = cursor.getInt(cursor.getColumnIndex("message"));
+			item.number = cursor.getString(cursor.getColumnIndex("number"));
+			item.content = cursor.getString(cursor.getColumnIndex("content"));
+			item.sendorreceive = cursor.getInt(cursor.getColumnIndex("sendorreceive"));
+			item.sender = cursor.getString(cursor.getColumnIndex("sender"));
+			item.receiver = cursor.getString(cursor.getColumnIndex("receiver"));
+			item.cost = cursor.getString(cursor.getColumnIndex("cost"));
+			item.isover = cursor.getInt(cursor.getColumnIndex("isover"));
+			return item;
 		}
+		return null;
 	}
 	public void delete(int _id) {
 		dbInstance.delete(DB_TABLENAME, "_id=?", new String[]{String.valueOf(_id)});
@@ -265,10 +327,20 @@ public static final String DB_DBNAME="order";
 					   .append(DB_TABLENAME)
 					   .append(" (")
 					   .append("_id integer primary key autoincrement,")
-					   .append("name text,")
+					   .append("senderName text,")
+					   .append("senderNum text,")
+					   .append("sendAddress text,")
+					   .append("receiverName text,")
+					   .append("receiverNum text,")
+					   .append("receiverAddress text,")
+					   .append("weight int,")
+					   .append("volume text,")
+					   .append("type text,")
 					   .append("company text,")
-					   .append("number text,")
 					   .append("time text,")
+					   .append("two_code text,")
+					   .append("message int,")
+					   .append("number text,")
 					   .append("content text,")
 					   .append("cost text,")
 					   .append("sender text,")
@@ -289,5 +361,4 @@ public static final String DB_DBNAME="order";
 		}
 		
 	}
-
 }
