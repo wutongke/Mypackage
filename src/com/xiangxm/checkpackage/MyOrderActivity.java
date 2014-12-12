@@ -54,7 +54,7 @@ public class MyOrderActivity extends Activity {
 		Iterator tempIterator = tempOrder.iterator();
 		while(tempIterator.hasNext()){
 			Order order = (Order) tempIterator.next();
-			temp.add("发件人 :\n "+order.sender+"\n收件人:\n "+order.receiver);
+			temp.add("快递编号："+order.number+"\n发件人 :\n "+order.sender+"\n收件人:\n "+order.receiver);
 		}
 		orderListData.addAll(temp);
 		orderAdapter.notifyDataSetInvalidated();

@@ -52,7 +52,7 @@
             android:id="@+id/modify_mobile_num_newnum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请新输入手机号"
+            android:hint="请输入新手机号"
             android:textSize="15sp"
             android:layout_marginLeft="20dp"
             />
