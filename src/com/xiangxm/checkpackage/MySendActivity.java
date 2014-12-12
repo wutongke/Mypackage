@@ -19,11 +19,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.xiangxm.DB.DBHelper;
 import com.xiangxm.DB.OrderDB;
 import com.xiangxm.cls.Order;
 import com.xiangxm.utils.Constants;
@@ -32,6 +34,9 @@ public class MySendActivity extends Activity {
 
 	private Button sender;
 	private Button receive;
+	public static final String FORPERSON="forPerson";
+	public static final int FORPERSONSEND=1;
+	public static final int FORPERSONRECEIVE=2;
 	private Button weightP;
 	private Button weightM;
 	private Button timeSortBtn;
@@ -47,9 +52,11 @@ public class MySendActivity extends Activity {
 	private Button sendTime2;
 	private Button sendTime3;
 	private TextView sendTimeView;
-	private TextView otherInfo;
+	private EditText otherInfo;
 	private Button createOrder;
 	private CheckBox messageCheckBox;
+	private Button twoCode;
+	private ImageView twoCodeImageView;
 	private StringBuilder sendDate;
 	private StringBuilder sendTime;
 	private static final int requestForSender = 1;
@@ -87,9 +94,11 @@ public class MySendActivity extends Activity {
 		sendTime2 = (Button) findViewById(R.id.send_ordersendtype2);
 		sendTime3 = (Button) findViewById(R.id.send_ordersendtype3);
 		sendTimeView = (TextView) findViewById(R.id.send_ordersendtime);
-		otherInfo = (TextView) findViewById(R.id.send_otherinfo);
+		otherInfo = (EditText) findViewById(R.id.send_otherinfo);
 		createOrder = (Button) findViewById(R.id.ordertodingdan);
 		messageCheckBox = (CheckBox) findViewById(R.id.ordertomessage);
+		twoCode = (Button)findViewById(R.id.ordertocode);
+		twoCodeImageView= (ImageView)findViewById(R.id.two_code_view);
 	}
 
 	private void initButton() {
@@ -101,7 +110,7 @@ public class MySendActivity extends Activity {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MySendActivity.this,
 						ContactActivity.class);
-				Constants.forAddress = true;
+				intent.putExtra(FORPERSON, FORPERSONSEND);
 				startActivityForResult(intent, requestForSender);
 			}
 		});
@@ -112,7 +121,7 @@ public class MySendActivity extends Activity {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MySendActivity.this,
 						ContactActivity.class);
-				Constants.forAddress = true;
+				intent.putExtra(FORPERSON, FORPERSONRECEIVE);
 				startActivityForResult(intent, requestForReceive);
 			}
 		});
@@ -180,6 +189,7 @@ public class MySendActivity extends Activity {
 					return;
 				}
 				Order order= new Order();
+				order.number = System.currentTimeMillis()+"";
 				order.sender = sender.getText().toString();
 				order.receiver = receive.getText().toString();
 				order.weight = Integer.valueOf(weight.getText().toString());
@@ -196,7 +206,23 @@ public class MySendActivity extends Activity {
 				}
 				OrderDB myOrderHelper = new OrderDB(MySendActivity.this);
 				myOrderHelper.openDatabase();
-				myOrderHelper.insert(order);
+				if(myOrderHelper.insert(order)){
+					Toast.makeText(MySendActivity.this, "订单生成", Toast.LENGTH_SHORT).show();
+					Intent intent = new Intent(MySendActivity.this,SubmitOrderActivity.class);
+					intent.putExtra(Constants.ORDERID, myOrderHelper.getOrderByNumber(order.number+"")._id);
+					startActivity(intent);
+				}else{
+					Toast.makeText(MySendActivity.this, "订单生成失败", Toast.LENGTH_SHORT).show();
+				}
+				
+			}
+		});
+		twoCode.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				twoCodeImageView.setVisibility(View.VISIBLE);
 			}
 		});
 	}
@@ -206,8 +232,20 @@ public class MySendActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_send);
 		initView();
+		sender.setFocusable(true);
+		sender.setFocusableInTouchMode(true);
+		sender.requestFocus();
 		initButton();
 		setDateTime();
+	}
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		if (OrderDB.dbInstance != null) {
+			OrderDB.dbInstance.close();
+			OrderDB.dbInstance = null;
+		}
 	}
 
 	@Override
@@ -216,10 +254,15 @@ public class MySendActivity extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case requestForSender:
-			sender.setText(data.getStringExtra(Constants.SENDERINFO));
+			if(data!=null){
+				sender.setText(data.getStringExtra(Constants.PERSONINFO));
+			}
+			
 			break;
 		case requestForReceive:
-			receive.setText(data.getStringExtra(Constants.RECEIVEINFO));
+			if (data!=null) {
+				receive.setText(data.getStringExtra(Constants.PERSONINFO));
+			}
 			break;
 		default:
 			break;

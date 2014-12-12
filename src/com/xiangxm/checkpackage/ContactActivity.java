@@ -35,6 +35,7 @@ public class ContactActivity extends Activity {
 	private RadioButton personTypeReceive;
 	
 	private TextView newPersonButotn;
+	private Intent fromParentIntent;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class ContactActivity extends Activity {
 		ActionBar mainBar = getActionBar();
         mainBar.setDisplayHomeAsUpEnabled(true);
         mainBar.setTitle("返回");
-		
+        fromParentIntent = getIntent();
 		personSendOrReceiveRadiaGroup = (RadioGroup)findViewById(R.id.personlistbtn);
 		personTypeSend = (RadioButton)findViewById(R.id.persontypea);
 		personTypeReceive = (RadioButton)findViewById(R.id.persontypeb);
@@ -82,10 +83,19 @@ public class ContactActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(ContactActivity.this,NewPersonActivity.class);
-				intent.putExtra(Constants.UserID, personListForIntent.get((int) id)._id);
-				startActivity(intent);
+				if (fromParentIntent.getIntExtra(MySendActivity.FORPERSON, -1)==-1) {
+					// TODO Auto-generated method stub
+					Intent intent = new Intent(ContactActivity.this,
+							NewPersonActivity.class);
+					intent.putExtra(Constants.UserID,
+							personListForIntent.get((int) id)._id);
+					startActivity(intent);
+				}else{
+					Intent intent = new Intent();
+					intent.putExtra(Constants.PERSONINFO, personListData.get(position));
+						setResult(RESULT_OK, intent);
+						ContactActivity.this.finish();
+				}
 			}
 		});
 	}
