@@ -26,6 +26,7 @@
 	        android:layout_gravity="center"
 	        android:hint="输入快递码查询"
 	        android:textSize="15dp"
+	        android:inputType="number"
 	        />
 	    <ImageView 
 	        android:layout_width="match_parent"

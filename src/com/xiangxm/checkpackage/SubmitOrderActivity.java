@@ -95,7 +95,7 @@ public class SubmitOrderActivity extends Activity {
 								// TODO Auto-generated method stub
 								final ProgressDialog dialog = ProgressDialog.show(SubmitOrderActivity.this, "Loading...", "Please wait...", true, false);  
 								try {
-									Thread.sleep(3000);
+									Thread.sleep(1500);
 									dialog.cancel();
 									OrderDB myOrderHelper = new OrderDB(SubmitOrderActivity.this);
 									myOrderHelper.openDatabase();
@@ -141,6 +141,7 @@ public class SubmitOrderActivity extends Activity {
 			cost.setText("15元");
 			
 		}else if(!fromParentIntent.getStringExtra(Constants.ORDERNUMBER).equals("")){
+			payBtn.setVisibility(View.GONE);
 			order = myOrderHelper.getOrderByNumber(fromParentIntent.getStringExtra(Constants.ORDERNUMBER));
 			if (order!=null) {
 				sender.setText(order.sender);
@@ -158,9 +159,9 @@ public class SubmitOrderActivity extends Activity {
 					messageInfo.setText("否");
 				}
 				cost.setText("15元");
-				payBtn.setVisibility(View.GONE);
+//				payBtn.setVisibility(View.GONE);
 			}else{
-				Toast.makeText(SubmitOrderActivity.this, "未提交过的订单", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SubmitOrderActivity.this, "错误的快递码或未提交过的订单", Toast.LENGTH_SHORT).show();
 			}
 		}
 		else{

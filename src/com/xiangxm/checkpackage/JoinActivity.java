@@ -55,7 +55,7 @@ public class JoinActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Date date = new Date();
-				confirmData = (int) (Math.random() * 9999);
+				confirmData = (int) (Math.random()*9000+1000);
 				ContentValues values = new ContentValues();
 				values.put("address", "106980001112");
 				values.put("body", "亲爱的客户：您好！您的手机验证码为" + confirmData

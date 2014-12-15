@@ -57,6 +57,7 @@
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:singleLine="true"
+        android:inputType="number"
         android:hint="11位手机号码"
         android:layout_toRightOf="@+id/personnametitle"
         android:layout_alignTop="@+id/personmobilenumtitle"
