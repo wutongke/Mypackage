@@ -60,7 +60,8 @@ public class MySendActivity extends Activity {
 	private TextView sendTimeView;
 	private EditText otherInfo;
 	private Button createOrder;
-	private CheckBox messageCheckBox;
+	private CheckBox sendMmessageCheckBox;
+	private CheckBox receiveMessageCheckBox;
 	private Button twoCode;
 	private ImageView twoCodeImageView;
 	private StringBuilder sendDate;
@@ -102,7 +103,8 @@ public class MySendActivity extends Activity {
 		sendTimeView = (TextView) findViewById(R.id.send_ordersendtime);
 		otherInfo = (EditText) findViewById(R.id.send_otherinfo);
 		createOrder = (Button) findViewById(R.id.ordertodingdan);
-		messageCheckBox = (CheckBox) findViewById(R.id.ordertomessage);
+		sendMmessageCheckBox = (CheckBox) findViewById(R.id.ordersendtomessage);
+		receiveMessageCheckBox = (CheckBox) findViewById(R.id.orderreceivetomessage);
 		twoCode = (Button)findViewById(R.id.ordertocode);
 		twoCodeImageView= (ImageView)findViewById(R.id.two_code_view);
 	}
@@ -206,10 +208,15 @@ public class MySendActivity extends Activity {
 				order.time = sendTimeView.getText().toString();
 				order.otherinfo = otherInfo.getText().toString();
 				order.cost = 15+"";
-				if(messageCheckBox.isChecked()){
+				if(sendMmessageCheckBox.isChecked()){
 					order.message = 1;
 				}else{
 					order.message = 2;
+				}
+				if(receiveMessageCheckBox.isChecked()){
+					order.receiveMessage = "1";
+				}else{
+					order.receiveMessage = "2";
 				}
 				OrderDB myOrderHelper = new OrderDB(MySendActivity.this);
 				myOrderHelper.openDatabase();
@@ -230,7 +237,7 @@ public class MySendActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				try {
-					Bitmap qrCodeBitmap = EncodingHandler.createQRCode(order.number, 200);
+					Bitmap qrCodeBitmap = EncodingHandler.createQRCode(order.number, 350);
 					twoCodeImageView.setImageBitmap(qrCodeBitmap);
 					twoCodeImageView.setVisibility(View.VISIBLE);
 				} catch (WriterException e) {
@@ -238,6 +245,15 @@ public class MySendActivity extends Activity {
 					e.printStackTrace();
 				}
 				
+			}
+		});
+		findViewById(R.id.illegalorder).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MySendActivity.this,IllegalGoodsActivity.class);
+				startActivity(intent);
 			}
 		});
 	}

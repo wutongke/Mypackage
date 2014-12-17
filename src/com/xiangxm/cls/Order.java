@@ -6,7 +6,7 @@ import android.os.Parcelable;
 public class Order implements Parcelable {
 	public int _id;
 	public String senderName;
-	public String senderNum;
+	public String receiveMessage;
 	public String sendAddress;
 	public String receiverName;
 	public String receiverNum;

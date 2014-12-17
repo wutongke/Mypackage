@@ -80,12 +80,18 @@
 
                 <TextView
                     android:id="@+id/send_orderweight"
-                    android:layout_width="60dp"
+                    android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:gravity="center"
                     android:text="1"
+                    android:textSize="15sp" />
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="kg"
+                    android:layout_marginRight="5dp"
                     android:textSize="15sp" />
 
                 <Button
@@ -176,7 +182,7 @@
                         android:layout_height="30dp"
                         android:background="#ffffff"
                         android:gravity="left|center_vertical"
-                        android:text="按时间排序"
+                        android:text="时间由短到长排序"
                         android:textSize="15sp" />
 
                     <TextView
@@ -191,11 +197,25 @@
                         android:layout_height="30dp"
                         android:background="#ffffff"
                         android:gravity="left|center_vertical"
-                        android:text="按费用排序"
+                        android:text="费用由低到高排序"
                         android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/send_costsort"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:textSize="12sp" />
+                    <Button
+                        android:id="@+id/send_commentsortbtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="#ffffff"
+                        android:gravity="left|center_vertical"
+                        android:text="评价由高到低排序"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/send_commentsort"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:textSize="12sp" />
@@ -328,13 +348,19 @@
                 android:orientation="horizontal" >
 
                 <CheckBox
-                    android:id="@+id/ordertomessage "
+                    android:id="@+id/ordersendtomessage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="短信通知"
+                    android:text="快件确认发货后短信通知"
                     android:layout_weight="1"
-                    android:textSize="15sp" />
-
+                    android:textSize="10sp" />
+                <CheckBox
+                    android:id="@+id/orderreceivetomessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="快件签收后短信通知"
+                    android:layout_weight="1"
+                    android:textSize="10sp" />
                 <Button
                     android:id="@+id/ordertocode"
                     android:layout_width="wrap_content"

@@ -34,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:text="Email:xxx@163.com\n\nCopy right© 2014 "
+        android:text="Email:474517002@qq.com\n\nCopy right© 2014 "
         android:textSize="15sp" />
 
 </RelativeLayout>

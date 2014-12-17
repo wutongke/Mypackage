@@ -50,14 +50,21 @@ public class MyReceiveActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if (number.getText().toString().equals("")) {
-					Toast.makeText(MyReceiveActivity.this, "请输入快递码",
+					Toast.makeText(MyReceiveActivity.this, "请输入快递码,在个人中心中可以查询到快递码",
 							Toast.LENGTH_SHORT).show();
 				} else {
-					Intent intent = new Intent(MyReceiveActivity.this,
-							SubmitOrderActivity.class);
-					intent.putExtra(Constants.ORDERNUMBER, number.getText()
-							.toString());
-					startActivity(intent);
+					if (Math.abs(Long.valueOf(number.getText().toString()) - System.currentTimeMillis()) < 100 * 24
+						* 60 * 60 * 1000) {
+						Intent intent = new Intent(MyReceiveActivity.this,
+								SubmitOrderActivity.class);
+						intent.putExtra(Constants.ORDERNUMBER, number.getText()
+								.toString());
+						startActivity(intent);
+					}else {
+						Toast.makeText(MyReceiveActivity.this,
+								number.getText().toString() + "不是正确的快递编码,在个人中心中可以查询到快递码", Toast.LENGTH_SHORT)
+								.show();
+					}
 				}
 
 			}

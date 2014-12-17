@@ -33,6 +33,7 @@ public class SubmitOrderActivity extends Activity {
 	private TextView costType;
 	private TextView otherInfo;
 	private TextView messageInfo;
+	private TextView receivemessageInfo;
 	private TextView cost;
 	private Button payBtn;
 	private Intent fromParentIntent;
@@ -57,6 +58,7 @@ public class SubmitOrderActivity extends Activity {
 		costType = (TextView)findViewById(R.id.submit_ordercosttype);
 		otherInfo = (TextView)findViewById(R.id.submit_otherinfo);
 		messageInfo = (TextView)findViewById(R.id.submit_message);
+		receivemessageInfo = (TextView)findViewById(R.id.submit_receive_message);
 		cost = (TextView)findViewById(R.id.submit_cost);
 		sendTime = (TextView)findViewById(R.id.submit_ordersendtime);
 		payBtn = (Button)findViewById(R.id.submit_ordertopay);
@@ -138,6 +140,11 @@ public class SubmitOrderActivity extends Activity {
 			}else{
 				messageInfo.setText("否");
 			}
+			if(order.receiveMessage.equals("1")){
+				receivemessageInfo.setText("是");
+			}else{
+				receivemessageInfo.setText("否");
+			}
 			cost.setText("15元");
 			
 		}else if(!fromParentIntent.getStringExtra(Constants.ORDERNUMBER).equals("")){
@@ -157,6 +164,11 @@ public class SubmitOrderActivity extends Activity {
 					messageInfo.setText("是");
 				} else {
 					messageInfo.setText("否");
+				}
+				if(order.receiveMessage!=null&&order.receiveMessage.equals("1")){
+					receivemessageInfo.setText("是");
+				}else{
+					receivemessageInfo.setText("否");
 				}
 				cost.setText("15元");
 //				payBtn.setVisibility(View.GONE);

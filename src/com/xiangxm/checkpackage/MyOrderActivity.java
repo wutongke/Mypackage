@@ -7,6 +7,7 @@ import java.util.Iterator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.xiangxm.DB.OrderDB;
 import com.xiangxm.cls.Order;
+import com.xiangxm.utils.Constants;
 
 public class MyOrderActivity extends Activity {
 
@@ -40,6 +42,10 @@ public class MyOrderActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
+				Intent intent = new Intent(MyOrderActivity.this,
+						SubmitOrderActivity.class);
+				intent.putExtra(Constants.ORDERNUMBER,tempOrder.get(position).number);
+				startActivity(intent);
 			}
 		});
 	}
