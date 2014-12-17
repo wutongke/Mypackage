@@ -27,18 +27,6 @@ public class WelcomeActivity extends Activity {
 		}
 		startActivity(intent);
 	}
-	public void ic_other(View view) {
-		// TODO Auto-generated method stub
-		Intent intent;
-		if(LoginConstant.isLogin){
-			intent = new Intent(WelcomeActivity.this,PersonActivity.class);
-			
-		}else{
-			intent = new Intent(WelcomeActivity.this,LoginActivity.class);
-			Toast.makeText(WelcomeActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
-		}
-		startActivity(intent);
-	}
 	
 	public void ic_system(View view) {
 		// TODO Auto-generated method stub
