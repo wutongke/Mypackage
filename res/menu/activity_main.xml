@@ -25,7 +25,7 @@
         android:title="删除查询历史"/>
     <item
         android:id="@+id/back_to_main"
-        android:icon="@drawable/ic_setting"
+        android:icon="@drawable/ic_sets"
         android:showAsAction="ifRoom"
         android:title="回到首页"/>
     <!--
