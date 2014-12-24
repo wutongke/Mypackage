@@ -25,7 +25,7 @@
         android:layout_alignBottom="@+id/nametitle"
         android:layout_marginLeft="20dp"
         android:singleLine="true"
-        android:inputType="number"
+        android:inputType="numberSigned"
         android:hint="11位手机号"
         />
     <TextView 
@@ -68,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/pwdtitle"
         android:layout_alignLeft="@+id/name"
+        android:inputType="textPassword"
         android:singleLine="true"
         />
     <TextView 
@@ -82,6 +83,7 @@
     <EditText 
         android:id="@+id/pwdConfirm"
         android:layout_marginLeft="20dp"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/pwdConfirmtitle"
