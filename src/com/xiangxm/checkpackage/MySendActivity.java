@@ -37,22 +37,23 @@ import com.zxing.encoding.EncodingHandler;
 
 public class MySendActivity extends Activity {
 
-	private Order order= new Order();
+	private Order order = new Order();
 	private Button sender;
 	private Button receive;
-	public static final String FORPERSON="forPerson";
-	public static final int FORPERSONSEND=1;
-	public static final int FORPERSONRECEIVE=2;
+	public static final String FORPERSON = "forPerson";
+	public static final int FORPERSONSEND = 1;
+	public static final int FORPERSONRECEIVE = 2;
 	private Button weightP;
 	private Button weightM;
-	private Button timeSortBtn;
-	private Button costSortBtn;
 	private TextView weight;
 	private Spinner volume;
 	private Spinner goodCompany;
 	private EditText goodType;
 	private TextView timeSort;
 	private TextView costSort;
+	private TextView markSrot;
+	private TextView chestNum1;
+	private TextView chestNum2;
 	private Spinner costType;
 	private Button sendTime1;
 	private Button sendTime2;
@@ -68,6 +69,7 @@ public class MySendActivity extends Activity {
 	private StringBuilder sendTime;
 	private static final int requestForSender = 1;
 	private static final int requestForReceive = 2;
+	private static final int requestForChest = 3;
 
 	//
 	private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -93,9 +95,8 @@ public class MySendActivity extends Activity {
 		goodType = (EditText) findViewById(R.id.send_ordertype);
 		goodCompany = (Spinner) findViewById(R.id.send_company);
 		timeSort = (TextView) findViewById(R.id.send_timesort);
-		timeSortBtn = (Button) findViewById(R.id.send_timesortbtn);
-		costSortBtn = (Button) findViewById(R.id.send_costsortbtn);
 		costSort = (TextView) findViewById(R.id.send_costsort);
+		markSrot = (TextView)findViewById(R.id.send_commentsort);
 		costType = (Spinner) findViewById(R.id.send_ordercosttype);
 		sendTime1 = (Button) findViewById(R.id.send_ordersendtype1);
 		sendTime2 = (Button) findViewById(R.id.send_ordersendtype2);
@@ -105,8 +106,10 @@ public class MySendActivity extends Activity {
 		createOrder = (Button) findViewById(R.id.ordertodingdan);
 		sendMmessageCheckBox = (CheckBox) findViewById(R.id.ordersendtomessage);
 		receiveMessageCheckBox = (CheckBox) findViewById(R.id.orderreceivetomessage);
-		twoCode = (Button)findViewById(R.id.ordertocode);
-		twoCodeImageView= (ImageView)findViewById(R.id.two_code_view);
+		twoCode = (Button) findViewById(R.id.ordertocode);
+		twoCodeImageView = (ImageView) findViewById(R.id.two_code_view);
+		chestNum2 = (TextView)findViewById(R.id.send_chest);
+		chestNum1 = (TextView)findViewById(R.id.send_chest_num);
 	}
 
 	private void initButton() {
@@ -181,23 +184,25 @@ public class MySendActivity extends Activity {
 				MySendActivity.this.dateandtimeHandler.sendMessage(msg);
 			}
 		});
-		
+
 		createOrder.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(sender.getText().toString().equals("")||
-						receive.getText().toString().equals("")||
-						weight.getText().toString().equals("")||
-						goodType.getText().toString().equals("")||
-						sendTimeView.getText().toString().equals("")
-						){
-					Toast.makeText(MySendActivity.this, "请填写完整信息", Toast.LENGTH_SHORT).show();
+				if (sender.getText().toString().equals("")
+						|| receive.getText().toString().equals("")
+						|| weight.getText().toString().equals("")
+						|| goodType.getText().toString().equals("")
+						|| sendTimeView.getText().toString().equals("")
+						|| chestNum1.getText().toString().equals("")
+						||	chestNum2.getText().toString().equals("")
+						) {
+					Toast.makeText(MySendActivity.this, "请填写完整信息",
+							Toast.LENGTH_SHORT).show();
 					return;
 				}
-				
-				
+
 				order.sender = sender.getText().toString();
 				order.receiver = receive.getText().toString();
 				order.weight = Integer.valueOf(weight.getText().toString());
@@ -207,78 +212,127 @@ public class MySendActivity extends Activity {
 				order.type = costType.getSelectedItem().toString();
 				order.time = sendTimeView.getText().toString();
 				order.otherinfo = otherInfo.getText().toString();
-				order.cost = 15+"";
-				if(sendMmessageCheckBox.isChecked()){
+				order.chestNum1 = chestNum1.getText().toString();
+				order.chestNum2 = chestNum2.getText().toString();
+				order.cost = 15 + "";
+				if (sendMmessageCheckBox.isChecked()) {
 					order.message = 1;
-				}else{
+				} else {
 					order.message = 2;
 				}
-				if(receiveMessageCheckBox.isChecked()){
+				if (receiveMessageCheckBox.isChecked()) {
 					order.receiveMessage = "1";
-				}else{
+				} else {
 					order.receiveMessage = "2";
 				}
 				OrderDB myOrderHelper = new OrderDB(MySendActivity.this);
 				myOrderHelper.openDatabase();
-				if(myOrderHelper.insert(order)){
-					Toast.makeText(MySendActivity.this, "订单生成", Toast.LENGTH_SHORT).show();
-					Intent intent = new Intent(MySendActivity.this,SubmitOrderActivity.class);
-					intent.putExtra(Constants.ORDERID, myOrderHelper.getOrderByNumber(order.number+"")._id);
+				if (myOrderHelper.insert(order)) {
+					Toast.makeText(MySendActivity.this, "订单生成",
+							Toast.LENGTH_SHORT).show();
+					Intent intent = new Intent(MySendActivity.this,
+							SubmitOrderActivity.class);
+					intent.putExtra(
+							Constants.ORDERID,
+							myOrderHelper.getOrderByNumber(order.number + "")._id);
 					startActivity(intent);
-				}else{
-					Toast.makeText(MySendActivity.this, "订单生成失败", Toast.LENGTH_SHORT).show();
+				} else {
+					Toast.makeText(MySendActivity.this, "订单生成失败",
+							Toast.LENGTH_SHORT).show();
 				}
-				
+
 			}
 		});
 		twoCode.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				try {
-					Bitmap qrCodeBitmap = EncodingHandler.createQRCode(order.number, 350);
+					Bitmap qrCodeBitmap = EncodingHandler.createQRCode(
+							order.number, 350);
 					twoCodeImageView.setImageBitmap(qrCodeBitmap);
 					twoCodeImageView.setVisibility(View.VISIBLE);
 				} catch (WriterException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 			}
 		});
-		findViewById(R.id.illegalorder).setOnClickListener(new OnClickListener() {
+		findViewById(R.id.illegalorder).setOnClickListener(
+				new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Intent intent = new Intent(MySendActivity.this,
+								IllegalGoodsActivity.class);
+						startActivity(intent);
+					}
+				});
+		findViewById(R.id.send_timesortbtn).setOnClickListener(
+				new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						timeSort.setText("中通，圆通，申通，汇通，天天，韵达，全峰，EMS");
+					}
+				});
+		findViewById(R.id.send_costsortbtn).setOnClickListener(
+				new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						costSort.setText("申通，圆通，汇通，天天，EMS，中通，韵达，全峰");
+					}
+				});
+		findViewById(R.id.send_commentsortbtn).setOnClickListener(
+				new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						markSrot.setText("EMS，申通，中通，圆通，，全峰天天，汇通，韵达");
+					}
+				});
+		findViewById(R.id.send_chest_choose).setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(MySendActivity.this,IllegalGoodsActivity.class);
-				startActivity(intent);
+				Intent intentForChoose = new Intent(MySendActivity.this,ChestActivity.class);
+				startActivityForResult(intentForChoose, requestForChest);
 			}
 		});
+
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_send);
-		if(!LoginConstant.isLogin){
-			Toast.makeText(MySendActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
-			Intent intent = new Intent(MySendActivity.this,LoginActivity.class);
+		if (!LoginConstant.isLogin) {
+			Toast.makeText(MySendActivity.this, "请先登录", Toast.LENGTH_SHORT)
+					.show();
+			Intent intent = new Intent(MySendActivity.this, LoginActivity.class);
 			startActivity(intent);
 			this.finish();
 		}
 		ActionBar mainBar = getActionBar();
 		mainBar.setTitle("发快递");
-		
+
 		initView();
-		order.number = System.currentTimeMillis()+"";
+		order.number = System.currentTimeMillis() + "";
 		sender.setFocusable(true);
 		sender.setFocusableInTouchMode(true);
 		sender.requestFocus();
 		initButton();
 		setDateTime();
 	}
+
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
@@ -295,16 +349,20 @@ public class MySendActivity extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case requestForSender:
-			if(data!=null){
+			if (data != null) {
 				sender.setText(data.getStringExtra(Constants.PERSONINFO));
 			}
-			
+
 			break;
 		case requestForReceive:
-			if (data!=null) {
+			if (data != null) {
 				receive.setText(data.getStringExtra(Constants.PERSONINFO));
 			}
 			break;
+		case requestForChest:
+			if(data!=null){
+				chestNum2.setText(data.getStringExtra("chest"));
+			}
 		default:
 			break;
 		}
@@ -332,7 +390,7 @@ public class MySendActivity extends Activity {
 		sendDate = new StringBuilder().append(mYear).append("-")
 				.append((mMonth + 1) < 10 ? "0" + (mMonth + 1) : (mMonth + 1))
 				.append("-").append((mDay < 10) ? "0" + mDay : mDay);
-		sendTimeView.setText(sendDate+" "+sendTime);
+		sendTimeView.setText(sendDate + " " + sendTime);
 	}
 
 	/**
@@ -349,14 +407,13 @@ public class MySendActivity extends Activity {
 		}
 	};
 
-
 	/**
 	 * 更新时间显示
 	 */
 	private void updateTimeDisplay() {
 		sendTime = new StringBuilder().append(mHour).append(":")
 				.append((mMinute < 10) ? "0" + mMinute : mMinute);
-		sendTimeView.setText(sendDate+" "+sendTime);
+		sendTimeView.setText(sendDate + " " + sendTime);
 	}
 
 	/**

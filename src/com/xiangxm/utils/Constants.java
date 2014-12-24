@@ -12,5 +12,9 @@ public class Constants {
 	 */
 	public static final String ORDERNUMBER = "ordernumber";
 	public static final String PERSONINFO = "Senderinfo";
+	/**
+	 * 待收快递
+	 */
+	public static final String MYRECEIVE = "myreceive";
 //	public static final String RECEIVEINFO = "Receiveinfo";
 }

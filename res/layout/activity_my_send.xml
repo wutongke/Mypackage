@@ -240,7 +240,38 @@
                     android:layout_marginLeft="15dp"
                     android:entries="@array/ordercosttypevalue" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal" >
 
+                <EditText
+                    android:id="@+id/send_chest_num"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="快递柜编号"
+                    android:textSize="10sp" />
+                <TextView 
+                    android:id="@+id/send_chest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="5dp"
+                    android:hint="柜号"
+                    android:textSize="15sp"
+                    />
+
+                <Button
+                    android:id="@+id/send_chest_choose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ff5656"
+                    android:text="选择柜号"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+			
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

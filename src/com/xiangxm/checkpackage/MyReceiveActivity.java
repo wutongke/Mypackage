@@ -16,12 +16,13 @@ import com.xiangxm.utils.LoginConstant;
 import com.zxing.activity.CaptureActivity;
 
 public class MyReceiveActivity extends Activity {
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_receive);
 		ActionBar mainBar = getActionBar();
+		
 		mainBar.setTitle("收快递");
 		if (!LoginConstant.isLogin) {
 			Toast.makeText(MyReceiveActivity.this, "请先登录", Toast.LENGTH_SHORT)
@@ -33,6 +34,17 @@ public class MyReceiveActivity extends Activity {
 		}
 		LinearLayout queryNum = (LinearLayout) findViewById(R.id.receive_query_number);
 		LinearLayout queryImg = (LinearLayout) findViewById(R.id.receive_query_image);
+		LinearLayout myReceive = (LinearLayout) findViewById(R.id.receive_query_myreceive);
+		myReceive.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MyReceiveActivity.this,MyOrderActivity.class);
+				intent.putExtra(Constants.MYRECEIVE,Constants.MYRECEIVE );
+				startActivity(intent);
+			}
+		});
 		final EditText number = (EditText) findViewById(R.id.receive_number);
 		queryImg.setOnClickListener(new OnClickListener() {
 

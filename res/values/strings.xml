@@ -131,5 +131,6 @@
 第12条 海关知识产权保护的（世界知名品牌、奥运标志等等，有“正式授权委托书”的可以收寄。）
 第13条 机电产品为：LED（晶元、晶体）、IC（集成电路）、电路板、线路板等电子元器件，钻咀、电动工具等机械设备及零配件，手表、摄像机等（仅适用于港澳台地区不可收寄件，但港澳台地区正式报关D类允许收寄）。</string>
     <string name="title_activity_my_receive">MyReceiveActivity</string>
+    <string name="title_activity_chest">ChestActivity</string>
 
 </resources>

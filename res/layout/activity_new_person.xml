@@ -80,6 +80,34 @@
         android:layout_alignTop="@+id/personlocatetitle"
         android:layout_marginLeft="10dp"
         />
+    <LinearLayout 
+        android:id="@+id/locate_select"
+        android:layout_below="@+id/personlocatetitle"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="35dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        >
+        <Spinner 
+            android:id="@+id/select_province"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+        <Spinner 
+            android:id="@+id/select_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+        <Spinner 
+            android:id="@+id/select_urban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
     <RadioGroup 
 	    android:id="@+id/persontypebtn"
 	    android:layout_width="match_parent"
@@ -89,7 +117,7 @@
 	    android:layout_marginTop="15dp"
 	    android:background="#ffffff"
 	    android:orientation="horizontal"
-	    android:layout_below="@+id/personlocatetitle"
+	    android:layout_below="@+id/locate_select"
 	    >
 	    <RadioButton 
 	        android:id="@+id/sendtype"

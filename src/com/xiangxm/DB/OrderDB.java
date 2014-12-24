@@ -50,9 +50,9 @@ public static final String DB_DBNAME="order";
 	 */
 	public boolean insert(Order order) {
 		ContentValues values = new ContentValues();
-		values.put("senderName", order.senderName);
+		values.put("senderName", order.chestNum1);
 		values.put("senderNum", order.receiveMessage);
-		values.put("sendAddress", order.sendAddress);
+		values.put("sendAddress", order.chestNum2);
 		values.put("receiverName", order.receiverName);
 		values.put("receiverNum", order.receiverNum);
 		values.put("receiverAddress", order.receiverAddress);
@@ -101,8 +101,8 @@ public static final String DB_DBNAME="order";
 			@SuppressWarnings("rawtypes")
 			Order item = new Order();
 			item._id = cursor.getInt(cursor.getColumnIndex("_id"));
-			item.senderName = cursor.getString(cursor.getColumnIndex("senderName"));
-			item.sendAddress = cursor.getString(cursor.getColumnIndex("sendAddress"));
+			item.chestNum1 = cursor.getString(cursor.getColumnIndex("senderName"));
+			item.chestNum2 = cursor.getString(cursor.getColumnIndex("sendAddress"));
 			item.receiveMessage = cursor.getString(cursor.getColumnIndex("senderNum"));
 			item.receiverName = cursor.getString(cursor.getColumnIndex("receiverName"));
 			item.receiverNum = cursor.getString(cursor.getColumnIndex("receiverNum"));
@@ -142,8 +142,8 @@ public static final String DB_DBNAME="order";
 		while(cursor.moveToNext()) {
 			Order item = new Order();
 			item._id = cursor.getInt(cursor.getColumnIndex("_id"));
-			item.senderName = cursor.getString(cursor.getColumnIndex("senderName"));
-			item.sendAddress = cursor.getString(cursor.getColumnIndex("sendAddress"));
+			item.chestNum1 = cursor.getString(cursor.getColumnIndex("senderName"));
+			item.chestNum2 = cursor.getString(cursor.getColumnIndex("sendAddress"));
 			item.receiveMessage = cursor.getString(cursor.getColumnIndex("senderNum"));
 			item.receiverName = cursor.getString(cursor.getColumnIndex("receiverName"));
 			item.receiverNum = cursor.getString(cursor.getColumnIndex("receiverNum"));
@@ -171,9 +171,9 @@ public static final String DB_DBNAME="order";
 	
 	public void modify(Order order) {
 		ContentValues values = new ContentValues();
-		values.put("senderName", order.senderName);
+		values.put("senderName", order.chestNum1);
 		values.put("senderNum", order.receiveMessage);
-		values.put("sendAddress", order.sendAddress);
+		values.put("sendAddress", order.chestNum2);
 		values.put("receiverName", order.receiverName);
 		values.put("receiverNum", order.receiverNum);
 		values.put("receiverAddress", order.receiverAddress);
@@ -211,8 +211,8 @@ public static final String DB_DBNAME="order";
 		if(cursor.moveToFirst()){
 			Order item = new Order();
 			item._id = cursor.getInt(cursor.getColumnIndex("_id"));
-			item.senderName = cursor.getString(cursor.getColumnIndex("senderName"));
-			item.sendAddress = cursor.getString(cursor.getColumnIndex("sendAddress"));
+			item.chestNum1 = cursor.getString(cursor.getColumnIndex("senderName"));
+			item.chestNum2 = cursor.getString(cursor.getColumnIndex("sendAddress"));
 			item.receiveMessage = cursor.getString(cursor.getColumnIndex("senderNum"));
 			item.receiverName = cursor.getString(cursor.getColumnIndex("receiverName"));
 			item.receiverNum = cursor.getString(cursor.getColumnIndex("receiverNum"));
@@ -249,8 +249,8 @@ public static final String DB_DBNAME="order";
 		if(cursor.moveToFirst()){
 			Order item = new Order();
 			item._id = cursor.getInt(cursor.getColumnIndex("_id"));
-			item.senderName = cursor.getString(cursor.getColumnIndex("senderName"));
-			item.sendAddress = cursor.getString(cursor.getColumnIndex("sendAddress"));
+			item.chestNum1 = cursor.getString(cursor.getColumnIndex("senderName"));
+			item.chestNum2 = cursor.getString(cursor.getColumnIndex("sendAddress"));
 			item.receiveMessage = cursor.getString(cursor.getColumnIndex("senderNum"));
 			item.receiverName = cursor.getString(cursor.getColumnIndex("receiverName"));
 			item.receiverNum = cursor.getString(cursor.getColumnIndex("receiverNum"));

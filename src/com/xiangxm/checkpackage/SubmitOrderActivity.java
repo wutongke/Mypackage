@@ -33,6 +33,8 @@ public class SubmitOrderActivity extends Activity {
 	private TextView costType;
 	private TextView otherInfo;
 	private TextView messageInfo;
+	private TextView chestNum1;
+	private TextView chestNum2;
 	private TextView receivemessageInfo;
 	private TextView cost;
 	private Button payBtn;
@@ -62,6 +64,8 @@ public class SubmitOrderActivity extends Activity {
 		cost = (TextView)findViewById(R.id.submit_cost);
 		sendTime = (TextView)findViewById(R.id.submit_ordersendtime);
 		payBtn = (Button)findViewById(R.id.submit_ordertopay);
+		chestNum1 = (TextView)findViewById(R.id.submit_order_chectnumber1);
+		chestNum2 = (TextView)findViewById(R.id.submit_order_chectnumber2);
 		payBtn.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -109,6 +113,9 @@ public class SubmitOrderActivity extends Activity {
 									e.printStackTrace();
 								}
 								Toast.makeText(SubmitOrderActivity.this, "付款成功", Toast.LENGTH_SHORT).show();
+								Intent intent = new Intent(SubmitOrderActivity.this,WelcomeActivity.class);
+								intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+								startActivity(intent);
 							}
 						});
 						
@@ -134,6 +141,8 @@ public class SubmitOrderActivity extends Activity {
 			content.setText(order.content);
 			company.setText(order.company);
 			costType.setText(order.type);
+			chestNum1.setText(order.chestNum1);
+			chestNum2.setText(order.chestNum2);
 			otherInfo.setText(order.otherinfo);
 			if(order.message==1){
 				messageInfo.setText("是");
