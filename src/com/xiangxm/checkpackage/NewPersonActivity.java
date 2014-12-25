@@ -111,6 +111,8 @@ public class NewPersonActivity extends Activity {
 					int position, long id) {
 				// TODO Auto-generated method stub
 				cityList.clear();
+				urbanList.clear();
+				urbanAdapter.notifyDataSetChanged();
 				switch(position){
 				case 0:
 					for(int i=0,n = beijing.length;i<n;i++){
@@ -131,8 +133,10 @@ public class NewPersonActivity extends Activity {
 					cityAdapter.notifyDataSetChanged();
 					break;
 				default:
+					cityAdapter.notifyDataSetChanged();
 					break;
 				}
+				
 				addressA = provinceList.get(position);
 				addressB = "";
 				addressC = "";
@@ -157,8 +161,8 @@ public class NewPersonActivity extends Activity {
 					for(int i=0,n = nanjing.length;i<n;i++){
 						urbanList.add(nanjing[i]);
 					}
-					urbanAdapter.notifyDataSetChanged();
 				}
+				urbanAdapter.notifyDataSetChanged();
 				addressB = cityList.get(position);
 				addressC = "";
 				addressTextView.setText(addressA+addressB+addressC);

@@ -48,7 +48,7 @@ public class MySendActivity extends Activity {
 	private TextView weight;
 	private Spinner volume;
 	private Spinner goodCompany;
-	private EditText goodType;
+	private Spinner goodType;
 	private TextView timeSort;
 	private TextView costSort;
 	private TextView markSrot;
@@ -92,7 +92,7 @@ public class MySendActivity extends Activity {
 		weightM = (Button) findViewById(R.id.send_weightm);
 		weight = (TextView) findViewById(R.id.send_orderweight);
 		volume = (Spinner) findViewById(R.id.send_ordervolume);
-		goodType = (EditText) findViewById(R.id.send_ordertype);
+		goodType = (Spinner) findViewById(R.id.send_ordertype);
 		goodCompany = (Spinner) findViewById(R.id.send_company);
 		timeSort = (TextView) findViewById(R.id.send_timesort);
 		costSort = (TextView) findViewById(R.id.send_costsort);
@@ -193,7 +193,7 @@ public class MySendActivity extends Activity {
 				if (sender.getText().toString().equals("")
 						|| receive.getText().toString().equals("")
 						|| weight.getText().toString().equals("")
-						|| goodType.getText().toString().equals("")
+						|| goodType.getSelectedItem().toString().equals("")
 						|| sendTimeView.getText().toString().equals("")
 						|| chestNum1.getText().toString().equals("")
 						||	chestNum2.getText().toString().equals("")
@@ -206,7 +206,7 @@ public class MySendActivity extends Activity {
 				order.sender = sender.getText().toString();
 				order.receiver = receive.getText().toString();
 				order.weight = Integer.valueOf(weight.getText().toString());
-				order.content = goodType.getText().toString();
+				order.content = goodType.getSelectedItem().toString();
 				order.volume = volume.getSelectedItem().toString();
 				order.company = goodCompany.getSelectedItem().toString();
 				order.type = costType.getSelectedItem().toString();

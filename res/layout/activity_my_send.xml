@@ -11,7 +11,7 @@
         android:scrollbars="vertical" >
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
@@ -135,13 +135,13 @@
                     android:text="快递类型"
                     android:textSize="15sp" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/send_ordertype"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:hint="请输入快件的具体内容，液体（包括饮料，酒精等）请先向快递公司核对后再生成订单），输入并确认后将信息自动添加到寄件订单信息中"
-                    android:textSize="10sp" />
+                    android:entries="@array/ordertype"
+                   />
             </LinearLayout>
 
             <Button

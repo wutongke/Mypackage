@@ -18,8 +18,8 @@ public final class R {
         public static final int slide_top_to_bottom=0x7f040006;
     }
     public static final class array {
-        public static final int date=0x7f060000;
         public static final int ordercosttypevalue=0x7f060003;
+        public static final int ordertype=0x7f060000;
         public static final int ordervolumevalue=0x7f060002;
         public static final int receiveview=0x7f060001;
         public static final int send_conpany_choose=0x7f060004;
